@@ -4,9 +4,10 @@
 
 # Site
 title: Luis Fuentes
-subtitle:
-description:
+subtitle: Fullstack Developer
+description: Blog Personal de Desarrollo y Herramientas Web.
 author: Luis Fuentes
+email: hola@luisfuentes.me
 language:
 timezone:
 
@@ -16,7 +17,7 @@ disqus_shortname: luisfuentes
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://luisfuentes.me
 root: /
 permalink: :title/
 permalink_defaults: 
