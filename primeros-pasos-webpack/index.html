@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Luis Fuentes">
 <meta property="og:description" content="Para continuar la introducción a Webpack voy a implementar un proyecto básico.Primero asegúrate que tienes instalado NodeJS y NPM. Luego en el terminal ejecutamos.
 12345678910$ mkdir webpack-app$ cd w">
-<meta property="og:updated_time" content="2015-09-18T05:47:37.000Z">
+<meta property="og:updated_time" content="2015-09-18T05:54:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Primeros pasos con Webpack">
 <meta name="twitter:description" content="Para continuar la introducción a Webpack voy a implementar un proyecto básico.Primero asegúrate que tienes instalado NodeJS y NPM. Luego en el terminal ejecutamos.
@@ -75,7 +75,7 @@
 	</header>
 	<div class="entry-content">
 		
-    	<p>Para continuar la <a href="https://luisfuentes.me/introducción-webpack/">introducción</a> a Webpack voy a implementar un proyecto básico.<br>Primero asegúrate que tienes instalado NodeJS y <a href="https://luisfuentes.me/guia-npm/">NPM</a>. Luego en el terminal ejecutamos.</p>
+    	<p>Para continuar la <a href="https://luisfuentes.me/introduccion-webpack/">introducción</a> a Webpack voy a implementar un proyecto básico.<br>Primero asegúrate que tienes instalado NodeJS y <a href="https://luisfuentes.me/guia-npm/">NPM</a>. Luego en el terminal ejecutamos.</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">mkdir</span> webpack-<span class="keyword">app</span></span><br><span class="line">$ <span class="keyword">cd</span> webpack-<span class="keyword">app</span></span><br><span class="line">$ npm init</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Esto iniciará nuestro proyecto y creará un nuevo package.json, luego instalamos Webpack y <span class="keyword">la</span> librería browser <span class="keyword">de</span> manera <span class="keyword">local</span> y lo agregamos como una dependencia <span class="keyword">de</span> desarrollo. </span><br><span class="line"></span><br><span class="line">    $ npm i webpack node-libs-browser --<span class="keyword">save</span>-dev</span><br><span class="line"></span><br><span class="line">Ahora generamos un poco <span class="keyword">la</span> estructura <span class="keyword">de</span> esta nuevo proyecto:</span><br></pre></td></tr></table></figure>
 <p>-/app<br>  -main.js<br>  -component.js<br>-/build<br>  -bundle.js (este se genera automagicamente)<br>  -index.html<br>-package.json<br>-webpack.config.js<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Lo primero será configurar webpack para que genere este archivo bundle<span class="class">.js</span>.</span><br><span class="line"></span><br><span class="line">**webpack<span class="class">.config</span><span class="class">.js</span>**</span><br></pre></td></tr></table></figure></p>
 <p>var path = require(‘path’);</p>
@@ -122,7 +122,7 @@
     </a>
   
   
-    <a href="/introduccion-webpack/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/introducción-webpack/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">
         

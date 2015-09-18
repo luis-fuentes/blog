@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Desarrollando con ESLint y Sublime Text | Luis Fuentes</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="####Introducción 
+Me imagino que la mayoría conoce Sublime Text por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. 
+ESLint es una herramienta que identifica y rep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Desarrollando con ESLint y Sublime Text">
+<meta property="og:url" content="https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/index.html">
+<meta property="og:site_name" content="Luis Fuentes">
+<meta property="og:description" content="####Introducción 
+Me imagino que la mayoría conoce Sublime Text por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. 
+ESLint es una herramienta que identifica y rep">
+<meta property="og:image" content="https://luisfuentes.me/content/images/2015/07/1-pq13xAtg6aNY6WPp9PncYA.png">
+<meta property="og:image" content="https://luisfuentes.me/content/images/2015/07/1-FQ3xxn5GZM-mv896YEJV7A.png">
+<meta property="og:image" content="https://luisfuentes.me/content/images/2015/07/1-Cbqe8u-LssZ_JFTArM77NQ.png">
+<meta property="og:updated_time" content="2015-09-18T05:58:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Desarrollando con ESLint y Sublime Text">
+<meta name="twitter:description" content="####Introducción 
+Me imagino que la mayoría conoce Sublime Text por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. 
+ESLint es una herramienta que identifica y rep">
+  
+    <link rel="alternative" href="/atom.xml" title="Luis Fuentes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Publicaciónes</a></li><li><a href="https://github.com/luis-fuentes">Github</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luisfuentes.me"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-desarrollando-con-eslint-y-sublime-text" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/desarrollando-con-eslint-y-sublime-text/" class="article-date">
+  <time datetime="2015-05-24T05:55:52.000Z" itemprop="datePublished">2015-05-24</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Desarrollando con ESLint y Sublime Text
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>####Introducción </p>
+<p>Me imagino que la mayoría conoce <a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text</a> por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. </p>
+<p><a href="https://github.com/eslint/eslint" target="_blank" rel="external">ESLint</a> es una herramienta que identifica y reporta patrones y errores en código ECMAScript/JavaScript. es similar a JS-Lint y JSHint con algunas diferencias:</p>
+<ul>
+<li>ESLint usa Espree para analizar JavaScript.</li>
+<li>ESLint usa un AST para evaluar patrones en código. </li>
+<li>ESLint soporta plugins, cada regla es un plugin y puedes agregar más en desarrollo.  </li>
+</ul>
+<p>####Instalación<br>Para instalar eslint globalmente usamos npm(además instalaremos un plugin de <a href="https://github.com/babel/babel-eslint" target="_blank" rel="external">Babel</a>).</p>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> eslint
+$ npm <span class="keyword">install</span> -<span class="keyword">g</span> babel-eslint</span>
+</code></pre><p>Pero recomiendo hacerlo localmente en cada proyecto como dev dependencia.</p>
+<pre><code>$ <span class="built_in">npm</span> install --save-dev eslint<span class="property">@latest</span>
+$ <span class="built_in">npm</span> install --save-dev babel-eslint<span class="property">@latest</span>
+</code></pre><p>Luego creamos un archivo <em>.eslintrc</em> en el directorio raíz de nuestro proyecto.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ¡Quiero usar babel-eslint para el análisis!</span></span><br><span class="line">  <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="comment">// El código es para un browser</span></span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// En CommonJS</span></span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Ejemplo de reglas para encontrar errores:</span></span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    <span class="string">"quotes"</span>: [<span class="number">2</span>, <span class="string">"single"</span>],</span><br><span class="line">    <span class="string">"eol-last"</span>: [<span class="number">0</span>],</span><br><span class="line">    <span class="string">"no-mixed-requires"</span>: [<span class="number">0</span>],</span><br><span class="line">    <span class="string">"no-underscore-dangle"</span>: [<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Y agregamos el siguiente script a <em>package.json</em> para correr el lint mediante npm.<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"lint"</span>: <span class="string">"eslint src"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>####Configurando Sublime</p>
+<p>Lo primero es instalar <a href="https://packagecontrol.io/installation" target="_blank" rel="external">Package Control</a> a través de las instrucciones de la web oficial.</p>
+<p>Mediante package control instalas <a href="http://sublimelinter.readthedocs.org/en/latest/installation.html#installing-via-pc" target="_blank" rel="external">SublimeLinter</a>, por defecto este no incluye linters para ningún lenguaje, por lo que instalaremos <a href="https://github.com/roadhump/SublimeLinter-eslint#plugin-installation" target="_blank" rel="external">SublimeLinter-contrib-eslint</a> (desinstala otros linters si es que los tenias). </p>
+<p>Luego le enseñaremos a sublime a reconocer ES6  instalando el paquete <a href="https://github.com/babel/babel-sublime" target="_blank" rel="external">babel-sublime</a>. Posteriormente elige este paquete como la sintaxis por defecto para archivos <em>.js</em> y <em>.jsx</em>.</p>
+<p>Solo nos falta definir en sublime-linter que sublime-babel es una variación de javascript. Para esto vamos a <em>SublimeLinter Settings — User</em> en el menu de comandos.</p>
+<p><img src="/content/images/2015/07/1-pq13xAtg6aNY6WPp9PncYA.png" alt="SublimeLinter Settings — User"></p>
+<p>y agregamos <em>javascript (babel)</em> al <em>syntax_map</em></p>
+<p><img src="/content/images/2015/07/1-FQ3xxn5GZM-mv896YEJV7A.png" alt="Syntax Map"></p>
+<p>¡¡Listo!! solo reinicia sublime y cada vez que grabes analizara tu código. Si quieres cambiar esto para que te avise en mientras escribes. Configuralo en <em>Choose Lint Mode</em></p>
+<p><img src="/content/images/2015/07/1-Cbqe8u-LssZ_JFTArM77NQ.png" alt="Choose Lint Mode"></p>
+<p>####Extra<br>Si estas desarrollando en react, puedes agregar el <a href="https://github.com/yannickcr/eslint-plugin-react" target="_blank" rel="external">plugin de react</a>.</p>
+<pre><code>$ <span class="built_in">npm</span> install --save-dev eslint-plugin-react<span class="property">@latest</span>
+</code></pre><p>y modificar el archivo <em>.eslintrc</em> más o menos así:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// Soporte a jsx</span></span><br><span class="line">  <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">    <span class="string">"jsx"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"modules"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ¡Quiero usar babel-eslint para el análisis!</span></span><br><span class="line">  <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="comment">// El código es para un browser</span></span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// En CommonJS</span></span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Ejemplo de reglas para encontrar errores:</span></span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    <span class="string">"quotes"</span>: [<span class="number">2</span>, <span class="string">"single"</span>],</span><br><span class="line">    <span class="string">"eol-last"</span>: [<span class="number">0</span>],</span><br><span class="line">    <span class="string">"no-mixed-requires"</span>: [<span class="number">0</span>],</span><br><span class="line">    <span class="string">"no-underscore-dangle"</span>: [<span class="number">0</span>],</span><br><span class="line">    <span class="string">"strict"</span>: [<span class="number">2</span>, <span class="string">"never"</span>],</span><br><span class="line">    <span class="string">"react/jsx-uses-react"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"react/jsx-uses-vars"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"react/react-in-jsx-scope"</span>: <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Agregamos el plugin</span></span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"react"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Babel/">Babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES2015/">ES2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESLint/">ESLint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS-X/">OS X</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/introducción-webpack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Introducción a Webpack
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:luisfuentes.me">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 Luis Fuentes<br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'luisfuentes';
+  
+  var disqus_url = 'https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
