@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Primeros pasos con Webpack | Luis Fuentes</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Para continuar la introducción a Webpack voy a implementar un proyecto básico.Primero asegúrate que tienes instalado NodeJS y NPM. Luego en el terminal ejecutamos.
+12345678910$ mkdir webpack-app$ cd w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Primeros pasos con Webpack">
+<meta property="og:url" content="https://luisfuentes.me/primeros-pasos-webpack/index.html">
+<meta property="og:site_name" content="Luis Fuentes">
+<meta property="og:description" content="Para continuar la introducción a Webpack voy a implementar un proyecto básico.Primero asegúrate que tienes instalado NodeJS y NPM. Luego en el terminal ejecutamos.
+12345678910$ mkdir webpack-app$ cd w">
+<meta property="og:updated_time" content="2015-09-18T05:47:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Primeros pasos con Webpack">
+<meta name="twitter:description" content="Para continuar la introducción a Webpack voy a implementar un proyecto básico.Primero asegúrate que tienes instalado NodeJS y NPM. Luego en el terminal ejecutamos.
+12345678910$ mkdir webpack-app$ cd w">
+  
+    <link rel="alternative" href="/atom.xml" title="Luis Fuentes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Publicaciónes</a></li><li><a href="https://github.com/luis-fuentes">Github</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luisfuentes.me"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-primeros-pasos-webpack" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/primeros-pasos-webpack/" class="article-date">
+  <time datetime="2015-07-03T05:45:44.000Z" itemprop="datePublished">2015-07-03</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/primeros-pasos-webpack/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Primeros pasos con Webpack
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Para continuar la <a href="https://luisfuentes.me/introducción-webpack/">introducción</a> a Webpack voy a implementar un proyecto básico.<br>Primero asegúrate que tienes instalado NodeJS y <a href="https://luisfuentes.me/guia-npm/">NPM</a>. Luego en el terminal ejecutamos.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">mkdir</span> webpack-<span class="keyword">app</span></span><br><span class="line">$ <span class="keyword">cd</span> webpack-<span class="keyword">app</span></span><br><span class="line">$ npm init</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Esto iniciará nuestro proyecto y creará un nuevo package.json, luego instalamos Webpack y <span class="keyword">la</span> librería browser <span class="keyword">de</span> manera <span class="keyword">local</span> y lo agregamos como una dependencia <span class="keyword">de</span> desarrollo. </span><br><span class="line"></span><br><span class="line">    $ npm i webpack node-libs-browser --<span class="keyword">save</span>-dev</span><br><span class="line"></span><br><span class="line">Ahora generamos un poco <span class="keyword">la</span> estructura <span class="keyword">de</span> esta nuevo proyecto:</span><br></pre></td></tr></table></figure>
+<p>-/app<br>  -main.js<br>  -component.js<br>-/build<br>  -bundle.js (este se genera automagicamente)<br>  -index.html<br>-package.json<br>-webpack.config.js<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Lo primero será configurar webpack para que genere este archivo bundle<span class="class">.js</span>.</span><br><span class="line"></span><br><span class="line">**webpack<span class="class">.config</span><span class="class">.js</span>**</span><br></pre></td></tr></table></figure></p>
+<p>var path = require(‘path’);</p>
+<p>module.exports = {<br>  entry: path.resolve(<strong>dirname, ‘app/main’),<br>  output: {<br>    path: path.resolve(</strong>dirname, ‘build’),<br>    filename: ‘bundle.js’,<br>  },<br>};<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="stata">####<span class="keyword">La</span> primera Build</span><br><span class="line"></span><br><span class="line">Ahora <span class="keyword">que</span> tenemos <span class="keyword">la</span> configuració<span class="keyword">n</span> básica lista, crearemos <span class="keyword">la</span> típica <span class="keyword">app</span> Hello World.</span><br><span class="line"></span><br><span class="line"><span class="comment">**app/component.js**</span></span></span><br></pre></td></tr></table></figure></p>
+<p>module.exports = function () {<br>  var element = document.createElement(‘h1’);<br>  element.innerHTML = ‘Hello world’;<br>  return element;<br>};<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>app/main.js<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure></p>
+<p>var component = require(‘./component’);<br>var app = document.createElement(‘div’);</p>
+<p>document.body.appendChild(app);<br>app.appendChild(component());<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Ahora si corres este comando <span class="keyword">en</span> <span class="keyword">la</span> terminal</span><br><span class="line"></span><br><span class="line">    $ node_modules/.bin/webpack</span><br><span class="line"></span><br><span class="line">Webpack generará el archivo bundle.js <span class="keyword">en</span> base a nuestros archivos <span class="keyword">en</span> <span class="keyword">la</span> carpeta /<span class="keyword">app</span>. El resultado <span class="keyword">en</span> el terminal debiera ser parecido a esto:</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>webpack-app@1.0.0 build /Users/something/projects/webpack-app<br>webpack</p>
+</blockquote>
+<p>Hash: e02f97146a15a8a5c3a9<br>Version: webpack 1.8.4<br>Time: 44ms<br>    Asset     Size  Chunks             Chunk Names<br>bundle.js  1.74 kB       0  [emitted]  main<br>   [0] ./app/main.js 115 bytes {0} [built]<br>   [1] ./app/component.js 134 bytes {0} [built]<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Ahora para usar de verdad este paquete, nos falta definir nuestro archivo index.</span><br><span class="line"></span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span>build/index.html<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html><br>  <head><br>    <meta charset="UTF-8"><br>  </head><br>  <body><br>    <script src="bundle.js"></script><br>  </body><br></html><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Doble click <span class="tag">a</span> nuestro archivo index<span class="class">.html</span> y deberí<span class="tag">a</span> estar funcionando. </span><br><span class="line"></span><br><span class="line">Para terminar podemos agregar webpack <span class="tag">a</span> nuestro archivo package<span class="class">.json</span> para que este se ejecute como un comando npm. esto será muy útil en el futuro cuando agreguemos más scripts <span class="tag">a</span> nuestra app. Solo agregamos las siguientes lineas:</span><br><span class="line"></span><br><span class="line">**package. introducción**</span><br></pre></td></tr></table></figure></p>
+<p>“scripts”: {<br>  “build”: “webpack”<br>}<br>```</p>
+<p>Listo, para terminar solo ejecutas</p>
+<pre><code>$ npm <span class="command">run</span> build
+</code></pre><p>y nuestra app se generará…</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/desarrollando-con-webpack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Desarrollando con Webpack
+        
+      </div>
+    </a>
+  
+  
+    <a href="/introduccion-webpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Introducción a Webpack
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:luisfuentes.me">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 Luis Fuentes<br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'luisfuentes';
+  
+  var disqus_url = 'https://luisfuentes.me/primeros-pasos-webpack/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>

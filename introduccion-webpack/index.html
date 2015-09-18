@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Introducción a Webpack | Luis Fuentes</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducción a Webpack">
+<meta property="og:url" content="https://luisfuentes.me/introduccion-webpack/index.html">
+<meta property="og:site_name" content="Luis Fuentes">
+<meta property="og:description" content="Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasia">
+<meta property="og:image" content="https://luisfuentes.me/content/images/2015/07/what-is-webpack.png">
+<meta property="og:updated_time" content="2015-09-18T05:50:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introducción a Webpack">
+<meta name="twitter:description" content="Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasia">
+  
+    <link rel="alternative" href="/atom.xml" title="Luis Fuentes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Publicaciónes</a></li><li><a href="https://github.com/luis-fuentes">Github</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luisfuentes.me"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-introduccion-webpack" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/introduccion-webpack/" class="article-date">
+  <time datetime="2015-06-25T05:48:45.000Z" itemprop="datePublished">2015-06-25</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/introduccion-webpack/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Introducción a Webpack
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. </p>
+<p>Este problema se ha intensificado por el aumento de las WebApps single-page. Estas tienden a basarse en varias bibliotecas bastante pesadas ​​y complejas. Y lo ideal sería cargar solo lo que necesitamos.</p>
+<p>Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue <a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a> que se basa en una arquitectura de plugins. Luego fue desplazada por <a href="http://gulpjs.com/" target="_blank" rel="external">Gulp</a> que en vez de plugins usaba código para automatizar las tareas. </p>
+<p>Javascript no tiene un concepto claro de módulos hasta ES6 por lo que trabajar con estos siempre fue un problema. y estábamos aun en los años 90 en lo que se refiere a browser environment. </p>
+<p>Intentando solucionar esto aparecieron herramientas como <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a> que te dejan requerir módulos en el browser. Y además puedes conectarlo con Gulp para automatizar esta tarea. El ecosistema de Browserify esta compuesto por muchos pequeños módulos, Es un poco más fácil de aprender y es una buena alternativa a Webpack. </p>
+<p>###Webpack</p>
+<p><img src="/content/images/2015/07/what-is-webpack.png" alt="¿Que es Webpack?"></p>
+<p><a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> toma un enfoque más monolítico frente a Browserify. Se puede configurar en base a código y ademas lo puedes extender usando loaders. Básicamente usando ‘require’ puedes requerir los módulos que necesites: CoffeeScript, Sass, Markdown, etc.. </p>
+<p>Toma todas tus dependencias, las carga a través de loaders y exporta código compatible con el browser. Todo esto se basa en configuración, Aquí les dejo un ejemplo de una configuración del tutorial oficial de Webpack:</p>
+<pre><code><span class="module"><span class="keyword">module</span>.exports = </span>{
+  entry: <span class="string">'./entry.js'</span>,
+  output: {
+    path: __dirname,
+    filename: <span class="string">'bundle.js'</span>
+  },
+  <span class="module"><span class="keyword">module</span>: </span>{
+    loaders: [
+      {
+        test: <span class="regexp">/\.css$/</span>,
+        loader: <span class="string">'style!css'</span>
+      }
+    ]
+  }
+};
+</code></pre><p>Para <a href="https://luisfuentes.me/primeros-pasos-webpack/"><strong>continuar</strong></a> solo queda desarrollar un proyecto en base a Webpack y así facilitar todo el proceso de desarrollo. </p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/primeros-pasos-webpack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Primeros pasos con Webpack
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:luisfuentes.me">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 Luis Fuentes<br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'luisfuentes';
+  
+  var disqus_url = 'https://luisfuentes.me/introduccion-webpack/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
