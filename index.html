@@ -253,7 +253,7 @@
 <p>Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue <a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a> que se basa en una arquitectura de plugins. Luego fue desplazada por <a href="http://gulpjs.com/" target="_blank" rel="external">Gulp</a> que en vez de plugins usaba código para automatizar las tareas. </p>
 <p>Javascript no tiene un concepto claro de módulos hasta ES6 por lo que trabajar con estos siempre fue un problema. y estábamos aun en los años 90 en lo que se refiere a browser environment. </p>
 <p>Intentando solucionar esto aparecieron herramientas como <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a> que te dejan requerir módulos en el browser. Y además puedes conectarlo con Gulp para automatizar esta tarea. El ecosistema de Browserify esta compuesto por muchos pequeños módulos, Es un poco más fácil de aprender y es una buena alternativa a Webpack. </p>
-<h3 id="Webpack">Webpack</h3><p><img src="/content/images/2015/07/what-is-webpack.png" alt="¿Que es Webpack?"></p>
+<h3 id="Webpack">Webpack</h3><p><img src="/images/what-is-webpack.png" alt="¿Que es Webpack?"></p>
 <p><a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> toma un enfoque más monolítico frente a Browserify. Se puede configurar en base a código y ademas lo puedes extender usando loaders. Básicamente usando ‘require’ puedes requerir los módulos que necesites: CoffeeScript, Sass, Markdown, etc.. </p>
 <p>Toma todas tus dependencias, las carga a través de loaders y exporta código compatible con el browser. Todo esto se basa en configuración, Aquí les dejo un ejemplo de una configuración del tutorial oficial de Webpack:</p>
 <pre><code><span class="module"><span class="keyword">module</span>.exports = </span>{
@@ -340,11 +340,11 @@
 <p>Mediante package control instalas <a href="http://sublimelinter.readthedocs.org/en/latest/installation.html#installing-via-pc" target="_blank" rel="external">SublimeLinter</a>, por defecto este no incluye linters para ningún lenguaje, por lo que instalaremos <a href="https://github.com/roadhump/SublimeLinter-eslint#plugin-installation" target="_blank" rel="external">SublimeLinter-contrib-eslint</a> (desinstala otros linters si es que los tenias). </p>
 <p>Luego le enseñaremos a sublime a reconocer ES6  instalando el paquete <a href="https://github.com/babel/babel-sublime" target="_blank" rel="external">babel-sublime</a>. Posteriormente elige este paquete como la sintaxis por defecto para archivos <em>.js</em> y <em>.jsx</em>.</p>
 <p>Solo nos falta definir en sublime-linter que sublime-babel es una variación de javascript. Para esto vamos a <em>SublimeLinter Settings — User</em> en el menu de comandos.</p>
-<p><img src="/content/images/2015/07/1-pq13xAtg6aNY6WPp9PncYA.png" alt="SublimeLinter Settings — User"></p>
+<p><img src="/images/1-pq13xAtg6aNY6WPp9PncYA.png" alt="SublimeLinter Settings — User"></p>
 <p>y agregamos <em>javascript (babel)</em> al <em>syntax_map</em></p>
-<p><img src="/content/images/2015/07/1-FQ3xxn5GZM-mv896YEJV7A.png" alt="Syntax Map"></p>
+<p><img src="/images/1-FQ3xxn5GZM-mv896YEJV7A.png" alt="Syntax Map"></p>
 <p>¡¡Listo!! solo reinicia sublime y cada vez que grabes analizara tu código. Si quieres cambiar esto para que te avise en mientras escribes. Configuralo en <em>Choose Lint Mode</em></p>
-<p><img src="/content/images/2015/07/1-Cbqe8u-LssZ_JFTArM77NQ.png" alt="Choose Lint Mode"></p>
+<p><img src="/images/1-Cbqe8u-LssZ_JFTArM77NQ.png" alt="Choose Lint Mode"></p>
 <h3 id="Extra">Extra</h3><p>Si estas desarrollando en react, puedes agregar el <a href="https://github.com/yannickcr/eslint-plugin-react" target="_blank" rel="external">plugin de react</a>.</p>
 <pre><code>$ <span class="built_in">npm</span> install --save-dev eslint-plugin-react<span class="property">@latest</span>
 </code></pre><p>y modificar el archivo <em>.eslintrc</em> más o menos así:</p>
@@ -373,6 +373,138 @@
 
 
   
+    <article id="post-desarrollando-sitios-estaticos-con-hugo" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/desarrollando-sitios-estaticos-con-hugo/" class="article-date">
+  <time datetime="2015-05-08T20:45:29.000Z" itemprop="datePublished">2015-05-08</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/desarrollando-sitios-estaticos-con-hugo/">Desarrollando sitios estáticos con Hugo</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Introducción">Introducción</h3><p><a href="http://gohugo.io/" target="_blank" rel="external">Hugo</a> es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. </p>
+<h3 id="Instalación">Instalación</h3><p>Primero descarga <a href="http://gohugo.io/" target="_blank" rel="external">Hugo</a> desde la web oficial o por terminal ejecuta</p>
+<pre><code>$ <span class="keyword">brew </span>install hugo
+</code></pre><p>Para crear una web base ejecutamos</p>
+<pre><code>$ hugo <span class="keyword">new</span> site /path/<span class="keyword">to</span>/site
+</code></pre><p>Genera la primera pagina de contenido estático</p>
+<pre><code>$ hugo <span class="keyword">new</span> about.md
+</code></pre><p>Instalamos los themes disponibles</p>
+<pre><code><span class="variable">$ </span>git clone --recursive <span class="symbol">https:</span>/<span class="regexp">/github.com/spf</span>13/hugoThemes themes
+</code></pre><p>Y finalmente ejecutamos nuestro server. (agregamos un theme y generamos las paginas en estado draft)</p>
+<pre><code><span class="comment">$</span> <span class="comment">hugo</span> <span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">theme=hyde</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">buildDrafts</span>
+</code></pre>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Static/">Static</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-guia-vagrant" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/guia-vagrant/" class="article-date">
+  <time datetime="2015-01-15T19:48:06.000Z" itemprop="datePublished">2015-01-15</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/guia-vagrant/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/guia-vagrant/">Guía Vagrant</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p><img src="/images/logo_wide-dce715a5.png" alt="Vagrant Logo"></p>
+<h4 id="Introducción">Introducción</h4><p><a href="https://www.vagrantup.com" target="_blank" rel="external">Vagrant</a> es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…</p>
+<h4 id="Instalación">Instalación</h4><ul>
+<li><p>El primer paso es descargar e instalar <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">VirtualBox</a> (hay otras alternativas pero esta es gratis).</p>
+</li>
+<li><p>Descarga e instala <a href="http://www.vagrantup.com/downloads" target="_blank" rel="external">Vagrant</a>.</p>
+</li>
+</ul>
+<h4 id="Primeros_pasos">Primeros pasos</h4><p>Para comenzar iniciamos una maquina virtual de vagrant, en este caso instalaré Ubuntu LTS 14.04, que es lo que normalmente uso en mi droplet de <a href="https://www.digitalocean.com/?refcode=e32ae009945f" target="_blank" rel="external">Digital Ocean</a>.</p>
+<pre><code><span class="variable">$ </span>vagrant init ubuntu/trusty64
+</code></pre><p>Solo queda levantar el box (La primera vez toma varios minutos).</p>
+<pre><code>$ vagrant up --provider <span class="keyword">virtual</span> <span class="keyword">box</span>
+</code></pre><p>Para ingresar a nuestro box por ssh</p>
+<pre><code><span class="variable">$ </span>vagrant ssh
+</code></pre><p>Para sincronizar otra carpeta con nuestra box modificamos el archivo <em>Vagrantfile</em></p>
+<pre><code>config<span class="class">.vm</span><span class="class">.synced_folder</span> <span class="string">"/Users/UserName/Carpeta"</span>, <span class="string">"/vagrant"</span>
+</code></pre><p>Nota: Siguiendo esta <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts" target="_blank" rel="external">Guía</a> podemos configurar virtual hosts en nuestro box.</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS-X/">OS X</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vagrant/">Vagrant</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
     </div>

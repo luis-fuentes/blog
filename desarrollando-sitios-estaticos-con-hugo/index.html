@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Desarrollando sitios estáticos con Hugo | Luis Fuentes</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="IntroducciónHugo es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. 
+InstalaciónPrimero descarga Hugo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Desarrollando sitios estáticos con Hugo">
+<meta property="og:url" content="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/index.html">
+<meta property="og:site_name" content="Luis Fuentes">
+<meta property="og:description" content="IntroducciónHugo es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. 
+InstalaciónPrimero descarga Hugo">
+<meta property="og:updated_time" content="2015-09-19T20:47:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Desarrollando sitios estáticos con Hugo">
+<meta name="twitter:description" content="IntroducciónHugo es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. 
+InstalaciónPrimero descarga Hugo">
+  
+    <link rel="alternative" href="/atom.xml" title="Luis Fuentes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Publicaciónes</a></li><li><a href="https://github.com/luis-fuentes">Github</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luisfuentes.me"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-desarrollando-sitios-estaticos-con-hugo" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/desarrollando-sitios-estaticos-con-hugo/" class="article-date">
+  <time datetime="2015-05-08T20:45:29.000Z" itemprop="datePublished">2015-05-08</time>
+</a>
+		</span>
+		<span class="meta-elements author">Luis Fuentes</span>
+		<div class="commentscount">
+			
+				<a href="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Desarrollando sitios estáticos con Hugo
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Introducción">Introducción</h3><p><a href="http://gohugo.io/" target="_blank" rel="external">Hugo</a> es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. </p>
+<h3 id="Instalación">Instalación</h3><p>Primero descarga <a href="http://gohugo.io/" target="_blank" rel="external">Hugo</a> desde la web oficial o por terminal ejecuta</p>
+<pre><code>$ <span class="keyword">brew </span>install hugo
+</code></pre><p>Para crear una web base ejecutamos</p>
+<pre><code>$ hugo <span class="keyword">new</span> site /path/<span class="keyword">to</span>/site
+</code></pre><p>Genera la primera pagina de contenido estático</p>
+<pre><code>$ hugo <span class="keyword">new</span> about.md
+</code></pre><p>Instalamos los themes disponibles</p>
+<pre><code><span class="variable">$ </span>git clone --recursive <span class="symbol">https:</span>/<span class="regexp">/github.com/spf</span>13/hugoThemes themes
+</code></pre><p>Y finalmente ejecutamos nuestro server. (agregamos un theme y generamos las paginas en estado draft)</p>
+<pre><code><span class="comment">$</span> <span class="comment">hugo</span> <span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">theme=hyde</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">buildDrafts</span>
+</code></pre>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guias/">Guías</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Static/">Static</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/desarrollando-con-eslint-y-sublime-text/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Desarrollando con ESLint y Sublime Text
+        
+      </div>
+    </a>
+  
+  
+    <a href="/guia-vagrant/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Guía Vagrant
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:luisfuentes.me">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">Luis Fuentes</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 Luis Fuentes<br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'luisfuentes';
+  
+  var disqus_url = 'https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
