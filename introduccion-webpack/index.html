@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Luis Fuentes">
 <meta property="og:description" content="Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasia">
 <meta property="og:image" content="https://luisfuentes.me/content/images/2015/07/what-is-webpack.png">
-<meta property="og:updated_time" content="2015-09-18T05:50:24.000Z">
+<meta property="og:updated_time" content="2015-09-19T19:26:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introducción a Webpack">
 <meta name="twitter:description" content="Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasia">
@@ -78,8 +78,7 @@
 <p>Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue <a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a> que se basa en una arquitectura de plugins. Luego fue desplazada por <a href="http://gulpjs.com/" target="_blank" rel="external">Gulp</a> que en vez de plugins usaba código para automatizar las tareas. </p>
 <p>Javascript no tiene un concepto claro de módulos hasta ES6 por lo que trabajar con estos siempre fue un problema. y estábamos aun en los años 90 en lo que se refiere a browser environment. </p>
 <p>Intentando solucionar esto aparecieron herramientas como <a href="http://browserify.org/" target="_blank" rel="external">Browserify</a> que te dejan requerir módulos en el browser. Y además puedes conectarlo con Gulp para automatizar esta tarea. El ecosistema de Browserify esta compuesto por muchos pequeños módulos, Es un poco más fácil de aprender y es una buena alternativa a Webpack. </p>
-<p>###Webpack</p>
-<p><img src="/content/images/2015/07/what-is-webpack.png" alt="¿Que es Webpack?"></p>
+<h3 id="Webpack">Webpack</h3><p><img src="/content/images/2015/07/what-is-webpack.png" alt="¿Que es Webpack?"></p>
 <p><a href="http://webpack.github.io/" target="_blank" rel="external">Webpack</a> toma un enfoque más monolítico frente a Browserify. Se puede configurar en base a código y ademas lo puedes extender usando loaders. Básicamente usando ‘require’ puedes requerir los módulos que necesites: CoffeeScript, Sass, Markdown, etc.. </p>
 <p>Toma todas tus dependencias, las carga a través de loaders y exporta código compatible con el browser. Todo esto se basa en configuración, Aquí les dejo un ejemplo de una configuración del tutorial oficial de Webpack:</p>
 <pre><code><span class="module"><span class="keyword">module</span>.exports = </span>{
