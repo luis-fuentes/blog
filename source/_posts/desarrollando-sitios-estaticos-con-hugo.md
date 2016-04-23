@@ -32,4 +32,3 @@ Instalamos los themes disponibles
 Y finalmente ejecutamos nuestro server. (agregamos un theme y generamos las paginas en estado draft)
 
     $ hugo server --theme=hyde --buildDrafts
-

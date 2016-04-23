@@ -30,7 +30,7 @@ mixin postList()
                 h2.archive-year!= year
             .post-item
                 +postInfo(item)
-                a.post-title-link(href= url_for(item.path))
+                a.post-title-link(href= url_for(item.path)) &nbsp;
                     != item.title
         - })
 

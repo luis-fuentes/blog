@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![Vagrant Logo](/images/logo_wide-dce715a5.png)
+![Vagrant Logo](/images/logo-vagrant.png)
 
 #### Instalación
 

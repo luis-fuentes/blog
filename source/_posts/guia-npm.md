@@ -16,7 +16,7 @@ tags:
 
 Viene instalado por defecto con la instalación de nodejs pero si no lo tienes, lo puedes instalar a través de [Homebrew](https://luisfuentes.me/guia-homebrew/) con el siguiente comando:
 
-  $ brew install node
+    $ brew install node
 
 ### ¿Ahora?
 

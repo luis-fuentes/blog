@@ -1,5 +1,5 @@
 title: Desarrollando con Webpack
-date: 2015-07-25 01:04:25
+date: 2015-08-25 01:04:25
 tags:
 - Guías
 - Javascript 
