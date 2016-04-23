@@ -1,12 +1,12 @@
 title: Desarrollando con Webpack
-date: 2015-07-08 01:04:25
+date: 2015-07-25 01:04:25
 tags:
 - Guías
 - Javascript 
 - Webpack
 ---
 
-En [primeros pasos con Webpack](https://luisfuentes.me/primeros-pasos-webpack/) generamos un proyecto básico pero teníamos que ejecutar *$ npm run build* cada vez que hacíamos un cambio... y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo. 
+En [primeros pasos con Webpack](https://luisfuentes.me/primeros-pasos-webpack/) generamos un proyecto básico pero teníamos que ejecutar *$ npm run build* cada vez que hacíamos un cambio... y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  
 Lo primero es instalar webpack-dev-server
 
     $ npm i webpack-dev-server --save-dev
@@ -14,6 +14,7 @@ Lo primero es instalar webpack-dev-server
 Ademas debemos modificar nuestro package.json para usarlo:
 
 **package.json**
+
 ```
 ...
 "scripts": {
@@ -23,10 +24,10 @@ Ademas debemos modificar nuestro package.json para usarlo:
 },
 ...
 ```
-
-Creamos un nuevo archivo de configuración:
+  Creamos un nuevo archivo de configuración:
 
 **webpack.development.js**
+
 ```
 var path = require('path');
 
@@ -64,6 +65,7 @@ También podemos configurar Webpack para que busque cambios en nuestros archivos
 y modificamos nuestro archivo webpack para que busque y cargue todos los archivos terminados en .css.
 
 **webpack.development.js**
+
 ```
 var path = require('path');
 
@@ -93,12 +95,14 @@ module.exports = {
 Ahora solo falta un detalle, agregar css a nuestro proyecto...
 
 **app/stylesheets/main.css** 
+
 ```
 body {
   background: cornsilk;
 }
 ```
 **app/main.js**
+
 ```
 require('./stylesheets/main.css');
 ...
@@ -113,6 +117,7 @@ Primero instalamos una pequeña utilidad que concatena arrays en lugar de rempla
 Finalmente modificamos nuestros archivos de configuración:
 
 **webpack.config.js**
+
 ```
 var path = require('path');
 var merge = require('webpack-merge');
@@ -151,6 +156,7 @@ if(TARGET === 'dev') {
 ```
 
 **package.json**
+
 ```
 ...
 "scripts": {
@@ -168,6 +174,7 @@ Finalmente nuestro proyecto funciona en base a el archivo *index.html* pero cuan
 Eliminamos nuestro archivo *index.html* y lo generamos automáticamente en cada build.
 
 **webpack.config.js** 
+
 ```
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -187,9 +194,11 @@ var common = {
 
 ...
 ```
+
 También eliminamos `--content-base`
 
 **package.json**
+
 ```
 ...
 "scripts": {
