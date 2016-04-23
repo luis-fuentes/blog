@@ -9,6 +9,7 @@ tags:
 ### Introducción
 [Hugo](http://gohugo.io/) es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. 
 
+<!--more-->
 
 ### Instalación 
 

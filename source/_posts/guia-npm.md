@@ -8,9 +8,11 @@ tags:
 
 ### ¿Que es NPM?
 
-![NPM logo](/images/npm.png)
-
 [NPM](https://www.npmjs.com/) es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. 
+
+<!--more-->
+
+![NPM logo](/images/npm.png)
 
 Viene instalado por defecto con la instalación de nodejs pero si no lo tienes, lo puedes instalar a través de [Homebrew](https://luisfuentes.me/guia-homebrew/) con el siguiente comando:
 

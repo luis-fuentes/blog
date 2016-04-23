@@ -7,6 +7,9 @@ tags:
 ---
 
 En [primeros pasos con Webpack](https://luisfuentes.me/primeros-pasos-webpack/) generamos un proyecto básico pero teníamos que ejecutar *$ npm run build* cada vez que hacíamos un cambio... y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  
+
+<!--more-->
+
 Lo primero es instalar webpack-dev-server
 
     $ npm i webpack-dev-server --save-dev

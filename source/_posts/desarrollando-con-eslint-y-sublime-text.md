@@ -16,6 +16,8 @@ tags:
 
 Me imagino que la mayoría conoce [Sublime Text](http://www.sublimetext.com) por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. 
 
+<!--more-->
+
 [ESLint](https://github.com/eslint/eslint) es una herramienta que identifica y reporta patrones y errores en código ECMAScript/JavaScript. es similar a JS-Lint y JSHint con algunas diferencias:
 
 - ESLint usa Espree para analizar JavaScript.

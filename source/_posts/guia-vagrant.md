@@ -6,10 +6,12 @@ tags:
 - Vagrant
 ---
 
-![Vagrant Logo](/images/logo_wide-dce715a5.png)
 #### Introducción
 [Vagrant](https://www.vagrantup.com) es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc...
 
+<!--more-->
+
+![Vagrant Logo](/images/logo_wide-dce715a5.png)
 
 #### Instalación
 

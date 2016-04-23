@@ -8,6 +8,8 @@ tags:
 
 Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. 
 
+<!--more-->
+
 Este problema se ha intensificado por el aumento de las WebApps single-page. Estas tienden a basarse en varias bibliotecas bastante pesadas ​​y complejas. Y lo ideal sería cargar solo lo que necesitamos.
 
 Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue [Grunt](http://gruntjs.com/) que se basa en una arquitectura de plugins. Luego fue desplazada por [Gulp](http://gulpjs.com/) que en vez de plugins usaba código para automatizar las tareas. 

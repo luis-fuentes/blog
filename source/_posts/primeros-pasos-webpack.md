@@ -9,6 +9,8 @@ tags:
 Para continuar la [introducción](https://luisfuentes.me/introduccion-webpack/) a Webpack voy a implementar un proyecto básico.
 Primero asegúrate que tienes instalado NodeJS y [NPM](https://luisfuentes.me/guia-npm/). Luego en el terminal ejecutamos.
 
+<!--more-->
+
 ```
 $ mkdir webpack-app
 $ cd webpack-app
