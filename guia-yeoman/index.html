@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Guía Yeoman · Notas en la Web</title><meta name="description" content="Guía Yeoman - Luis Fuentes"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo-blog.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">ROOT</a></li><li class="nav-list-item"><a href="/archives" target="_self" class="nav-list-link">ARCHIVOS</a></li><li class="nav-list-item"><a href="https://github.com/luis-fuentes" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Guía Yeoman</h1><div class="post-time">5 de Jul. de 2014</div><div class="post-content"><h3 id="Introducción">Introducción</h3><p>El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>YO</strong> - La herramienta de scaffolding de Yeoman.</p>
+</li>
+<li><p><strong>Bower</strong> - Es una herramienta de gestión de paquetes y dependencias, mantenida por twitter y una comunidad open-source.</p>
+</li>
+<li><p><strong>Grunt</strong> - Es un Task-Runer y sirve para automatizar tareas como compilar o testear.</p>
+</li>
+</ul>
+<p>Cada uno de estos proyectos se mantienen de forma independiente por sus respectivas comunidades, pero funcionan bien juntos como parte de un flujo de trabajo prescriptivo para mantenerte eficaz.</p>
+<p><img src="/images/yeoman-workflow.jpg" alt="Como funciona"></p>
+<p>A través de estas herramientas podrás:</p>
+<ul>
+<li><p>Crear el esqueleto de tu app muy rapido y podras elegir entre cientos de plantillas o generadores como <em>HTML5, Boilerplate, Bootstrap, MEAN, Angular, etc…</em></p>
+</li>
+<li><p>Compila automáticamente <em>Coffeescript</em> y <em>Compass</em>, además refresca automáticamente los cambios en el navegador gracias a <em>LiveReload</em> (Chao refresh (╯°□°）╯︵ ┻━┻).</p>
+</li>
+<li><p>Compara tus scripts con <em>JSHint</em> para comprobar el uso de buenas prácticas.</p>
+</li>
+<li><p>Puede optimizar tus imágenes con <em>OptiPNG</em> y <em>JPGTran</em>.</p>
+</li>
+<li><p>Sistema de control de paquetes!</p>
+</li>
+<li><p>Te lanza un servidor propio, entorno de pruebas y mucho más!!</p>
+</li>
+</ul>
+<h3 id="Instalación">Instalación</h3><p>Yeoman(YO) es mantenido por el proyecto Yeoman y sirve para generar el scaffolding de aplicaciones web, utilizando plantillas de scaffolding que se llaman generadores. Normalmente se instala YO y luego el generador que necesites a través de npm.</p>
+<p>  $ npm install -g yo</p>
+<p>Si usas una version de npm inferior a 1.2.10 debes instalar Bower y Grunt por separado:</p>
+<p>  $ npm install -g grunt-cli bower</p>
+<p>Los generadores oficiales los puedes encontrar en este <a href="http://yeoman.io/official-generators.html" target="_blank" rel="external">Link</a>. Y para instalarlos debes ejecutar:</p>
+<p>  $ npm install -g nombre_generador</p>
+<p>Luego creas una carpeta para el proyecto y al interior ejecutas:</p>
+<p>  $ yo nombre_generador –flags</p>
+<p><em>Nota: Las flags son opcionales y dependen del generador.</em></p>
+<p><img src="/images/yeoman-banner.png" alt="Yeoman!"></p>
+</div></article></div></section><footer><div class="paginator"><a href="/guia-npm/" class="prev">ANT</a><a href="/guia-homebrew/" class="next">SIG</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'luisfuentes';
+var disqus_identifier = 'guia-yeoman/';
+var disqus_title = 'Guía Yeoman';
+var disqus_url = 'https://luisfuentes.me/guia-yeoman/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//luisfuentes.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2016 <a href="https://luisfuentes.me">Luis Fuentes</a>, Valdivia - Chile.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-64770465-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

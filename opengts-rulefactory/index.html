@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Crear un RuleFactory en OpenGTS · Notas en la Web</title><meta name="description" content="Crear un RuleFactory en OpenGTS - Luis Fuentes"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo-blog.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">ROOT</a></li><li class="nav-list-item"><a href="/archives" target="_self" class="nav-list-link">ARCHIVOS</a></li><li class="nav-list-item"><a href="https://github.com/luis-fuentes" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Crear un RuleFactory en OpenGTS</h1><div class="post-time">2 de Ago. de 2012</div><div class="post-content"><p>Primero activamos las casillas en OpenGTS y los campos en la BD</p>
+<p>En el archivo StartupInit.java modificamos:</p>
+<pre><code>Device.setRuleFactory(<span class="keyword">new</span> RuleFactoryExample());
+</code></pre><p>En el archivo config.conf modificamos:</p>
+<pre><code>startupInit<span class="class">.Device</span><span class="class">.NotificationFieldInfo</span>=true
+</code></pre><p>En el Archivo private.xml modificamos:</p>
+<pre><code>&lt;<span class="keyword">Property</span> <span class="keyword">key</span>=<span class="string">"deviceInfo.showNotificationFields"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">Property</span>&gt;
+</code></pre><p>En el archivo RuleFactoryExample.java modificamos:</p>
+<pre><code><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> SEND_NOTIFICATION = <span class="keyword">true</span>;
+</code></pre><p>En el archivo common.conf modificamos:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># --- SMTP</span></span><br><span class="line"><span class="preprocessor"># --- (outgoing email configuration parameters)</span></span><br><span class="line"><span class="preprocessor">##smtp.host=localhost</span></span><br><span class="line"><span class="preprocessor">#smtp.debug=false</span></span><br><span class="line">smtp.host=smtp.gmail.com</span><br><span class="line">smtp.port=<span class="number">465</span></span><br><span class="line">smtp.user=Mail@gmail.com</span><br><span class="line">smtp.user.emailAddress=Mail@gmail.com</span><br><span class="line">smtp.password=Password</span><br><span class="line">smtp.enableSSL=<span class="literal">true</span></span><br><span class="line"><span class="preprocessor">#smtp.enableTLS=true</span></span><br><span class="line"><span class="preprocessor">#smtp.threadModel.show=false</span></span><br></pre></td></tr></table></figure>
+<p>Actualizamos la bd:</p>
+<pre><code>bin/dbAdmin.<span class="keyword">pl</span> -tables=<span class="keyword">ca</span>
+</code></pre><p>Y finalmenet compilamos :D</p>
+<p>Nota: Si no aparecen los nuevos campos, borramos manualmente track.war</p>
+<p>Stop Tomcat:<br>    <code>$CATALINA_HOME/bin/shutdown.sh</code></p>
+<p>Delete the existing “track” servlet:<br>    <code>rm -rf $CATALINA_HOME/webapps/track*</code></p>
+<p>Deploy the new “track” servlet:<br>    <code>cp $GTS_HOME/build/track.war $CATALINA_HOME/webapps/</code></p>
+<p>Restart Tomcat:<br>    <code>`$CATALINA_HOME/bin/startup.sh&quot;)</code></p>
+</div></article></div></section><footer><div class="paginator"><a href="/ror-debian/" class="prev">ANT</a><a href="/instalacion-opengts-linux/" class="next">SIG</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'luisfuentes';
+var disqus_identifier = 'opengts-rulefactory/';
+var disqus_title = 'Crear un RuleFactory en OpenGTS';
+var disqus_url = 'https://luisfuentes.me/opengts-rulefactory/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//luisfuentes.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2016 <a href="https://luisfuentes.me">Luis Fuentes</a>, Valdivia - Chile.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-64770465-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

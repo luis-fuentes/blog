@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Luis Fuentes</title>
+  <title>Notas en la Web</title>
   <subtitle>Javascript Developer</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://luisfuentes.me/"/>
-  <updated>2016-04-23T07:08:14.000Z</updated>
+  <updated>2016-04-23T18:42:56.000Z</updated>
   <id>https://luisfuentes.me/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Desarrollando con Webpack</title>
     <link href="https://luisfuentes.me/desarrollando-con-webpack/"/>
     <id>https://luisfuentes.me/desarrollando-con-webpack/</id>
-    <published>2015-07-25T04:04:25.000Z</published>
-    <updated>2016-04-23T07:08:14.000Z</updated>
+    <published>2015-08-25T04:04:25.000Z</published>
+    <updated>2016-04-23T18:42:56.000Z</updated>
     
     <content type="html">&lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  &lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -92,8 +92,8 @@
     <title>Primeros pasos con Webpack</title>
     <link href="https://luisfuentes.me/primeros-pasos-webpack/"/>
     <id>https://luisfuentes.me/primeros-pasos-webpack/</id>
-    <published>2015-07-03T05:45:44.000Z</published>
-    <updated>2016-04-23T07:30:11.000Z</updated>
+    <published>2015-07-13T05:45:44.000Z</published>
+    <updated>2016-04-23T18:42:50.000Z</updated>
     
     <content type="html">&lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.&lt;br&gt;Primero asegúrate que tienes instalado NodeJS y &lt;a href=&quot;https://luisfuentes.me/guia-npm/&quot;&gt;NPM&lt;/a&gt;. Luego en el terminal ejecutamos.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -259,7 +259,7 @@
     <link href="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/"/>
     <id>https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/</id>
     <published>2015-05-08T20:45:29.000Z</published>
-    <updated>2016-04-23T07:28:57.000Z</updated>
+    <updated>2016-04-23T18:35:20.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. &lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -295,11 +295,11 @@
     <link href="https://luisfuentes.me/guia-vagrant/"/>
     <id>https://luisfuentes.me/guia-vagrant/</id>
     <published>2015-01-15T19:48:06.000Z</published>
-    <updated>2016-04-23T07:30:50.000Z</updated>
+    <updated>2016-04-23T18:45:20.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;img src=&quot;/images/logo_wide-dce715a5.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/logo-vagrant.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;Instalación&quot;&gt;Instalación&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;El primer paso es descargar e instalar &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;VirtualBox&lt;/a&gt; (hay otras alternativas pero esta es gratis).&lt;/p&gt;
 &lt;/li&gt;
@@ -337,14 +337,14 @@
     <link href="https://luisfuentes.me/guia-npm/"/>
     <id>https://luisfuentes.me/guia-npm/</id>
     <published>2014-11-22T19:48:32.000Z</published>
-    <updated>2016-04-23T07:29:37.000Z</updated>
+    <updated>2016-04-23T18:31:45.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&lt;img src=&quot;/images/npm.png&quot; alt=&quot;NPM logo&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Viene instalado por defecto con la instalación de nodejs pero si no lo tienes, lo puedes instalar a través de &lt;a href=&quot;https://luisfuentes.me/guia-homebrew/&quot;&gt;Homebrew&lt;/a&gt; con el siguiente comando:&lt;/p&gt;
-&lt;p&gt;  $ brew install node&lt;/p&gt;
-&lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install &lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;identifier&quot;&gt;&lt;/span&gt;&lt;span class=&quot;title&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Primero creamos una aplicación, esto nos generará un archivo &lt;strong&gt;package.json&lt;/strong&gt; que contiene la configuración inicial de nuestro proyecto y donde posteriormente guardaremos las dependencias de esta mismo. Para instalar ejecutamos:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; init
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -378,6 +378,330 @@
       <category term="NPM" scheme="https://luisfuentes.me/tags/NPM/"/>
     
       <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía Yeoman</title>
+    <link href="https://luisfuentes.me/guia-yeoman/"/>
+    <id>https://luisfuentes.me/guia-yeoman/</id>
+    <published>2014-07-05T18:26:26.000Z</published>
+    <updated>2016-04-23T18:46:03.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;YO&lt;/strong&gt; - La herramienta de scaffolding de Yeoman.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Bower&lt;/strong&gt; - Es una herramienta de gestión de paquetes y dependencias, mantenida por twitter y una comunidad open-source.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Grunt&lt;/strong&gt; - Es un Task-Runer y sirve para automatizar tareas como compilar o testear.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cada uno de estos proyectos se mantienen de forma independiente por sus respectivas comunidades, pero funcionan bien juntos como parte de un flujo de trabajo prescriptivo para mantenerte eficaz.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/yeoman-workflow.jpg&quot; alt=&quot;Como funciona&quot;&gt;&lt;/p&gt;
+&lt;p&gt;A través de estas herramientas podrás:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Crear el esqueleto de tu app muy rapido y podras elegir entre cientos de plantillas o generadores como &lt;em&gt;HTML5, Boilerplate, Bootstrap, MEAN, Angular, etc…&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compila automáticamente &lt;em&gt;Coffeescript&lt;/em&gt; y &lt;em&gt;Compass&lt;/em&gt;, además refresca automáticamente los cambios en el navegador gracias a &lt;em&gt;LiveReload&lt;/em&gt; (Chao refresh (╯°□°）╯︵ ┻━┻).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compara tus scripts con &lt;em&gt;JSHint&lt;/em&gt; para comprobar el uso de buenas prácticas.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Puede optimizar tus imágenes con &lt;em&gt;OptiPNG&lt;/em&gt; y &lt;em&gt;JPGTran&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sistema de control de paquetes!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Te lanza un servidor propio, entorno de pruebas y mucho más!!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Yeoman(YO) es mantenido por el proyecto Yeoman y sirve para generar el scaffolding de aplicaciones web, utilizando plantillas de scaffolding que se llaman generadores. Normalmente se instala YO y luego el generador que necesites a través de npm.&lt;/p&gt;
+&lt;p&gt;  $ npm install -g yo&lt;/p&gt;
+&lt;p&gt;Si usas una version de npm inferior a 1.2.10 debes instalar Bower y Grunt por separado:&lt;/p&gt;
+&lt;p&gt;  $ npm install -g grunt-cli bower&lt;/p&gt;
+&lt;p&gt;Los generadores oficiales los puedes encontrar en este &lt;a href=&quot;http://yeoman.io/official-generators.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Link&lt;/a&gt;. Y para instalarlos debes ejecutar:&lt;/p&gt;
+&lt;p&gt;  $ npm install -g nombre_generador&lt;/p&gt;
+&lt;p&gt;Luego creas una carpeta para el proyecto y al interior ejecutas:&lt;/p&gt;
+&lt;p&gt;  $ yo nombre_generador –flags&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Nota: Las flags son opcionales y dependen del generador.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/yeoman-banner.png&quot; alt=&quot;Yeoman!&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+      <category term="Yeoman" scheme="https://luisfuentes.me/tags/Yeoman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía Homebrew</title>
+    <link href="https://luisfuentes.me/guia-homebrew/"/>
+    <id>https://luisfuentes.me/guia-homebrew/</id>
+    <published>2014-04-23T17:26:26.000Z</published>
+    <updated>2016-04-23T18:33:54.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;¿Que_es_homebrew?&quot;&gt;¿Que es homebrew?&lt;/h3&gt;&lt;p&gt;Homebrew es un gestor de paquetes esencial para OSX, desarrollado en ruby y para los que vienen de linux, funciona parecido a &lt;code&gt;apt-get&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;http://techtastico.com/files/2013/10/Homebrew.png&quot; alt=&quot;Homebrew&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Como OSX ya tiene ruby instalado, solo debemos ejecutar en consola:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ruby &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Después de instalar se recomienda correr doctor para buscar algún inconveniente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;doctor
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;p&gt;En homebrew a los paquetes se les denomina fórmulas, para instalar una solo debes ejecutar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si quieres buscar una fórmula:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;search nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para borrar una fórmula:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;remove nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;¿Quieres actualizar una fórmula?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;upgrade nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;¿Quieres actualizar Homebrew?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para ver las fórmulas que tienes instaladas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew &lt;span class=&quot;type&quot;&gt;list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;¿Que_es_homebrew?&quot;&gt;¿Que es homebrew?&lt;/h3&gt;&lt;p&gt;Homebrew es un gestor de paquetes esencial para OSX, desarrollado en ruby y para los que vienen de linux, funciona parecido a &lt;code&gt;apt-get&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Homebrew" scheme="https://luisfuentes.me/tags/Homebrew/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ruby On Rails en Debian</title>
+    <link href="https://luisfuentes.me/ror-debian/"/>
+    <id>https://luisfuentes.me/ror-debian/</id>
+    <published>2013-06-03T19:05:53.000Z</published>
+    <updated>2016-04-23T19:08:29.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RoR&lt;/a&gt; es instalar ruby, abre el terminal y:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instalamos ruby gems:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; rubygems
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunos comandos para manejar las gemas son:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//Actualizar ruby
+ $ gem &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;update&lt;/span&gt; –&lt;span class=&quot;keyword&quot;&gt;system&lt;/span&gt; 
+ //Ver gemas instaladas
+ $ gem &lt;span class=&quot;keyword&quot;&gt;list&lt;/span&gt;
+ // instalar algú&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;m&lt;/span&gt;ódulo
+ $ gem &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;m&lt;/span&gt;ódulo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instalamos ruby on rails&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; rails 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si vamos a usar mysql debemos instalar el driver mysql para RoR:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql-&lt;span class=&quot;keyword&quot;&gt;server&lt;/span&gt;
+ $ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; libmysqlclient-dev
+ $ gem &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Primeros_pasos_con_RoR&quot;&gt;Primeros pasos con RoR&lt;/h3&gt;&lt;p&gt;Para crear un proyecto ejecutas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;rails nombreDelProyecto
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Configuras el proveedor de bases de datos en &lt;strong&gt;config/database.yml&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;development&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_dev&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;test&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;production&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_prod&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Para terminar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ rake &lt;span class=&quot;string&quot;&gt;db:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;create:&lt;/span&gt;all
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Creamos nuestro primer scaffold de ejemplo en la base de datos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ruby &lt;span class=&quot;keyword&quot;&gt;script&lt;/span&gt;/generate scaffold Pelicula titulo:&lt;span class=&quot;type&quot;&gt;string&lt;/span&gt; descripcion:&lt;span class=&quot;type&quot;&gt;text&lt;/span&gt; url_caratula:&lt;span class=&quot;type&quot;&gt;string&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y en el archivo de migraciones &lt;strong&gt;db/migrate/20120107183925_create_peliculas.rb&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CreatePeliculas&lt;/span&gt; &lt;span class=&quot;inheritance&quot;&gt;&amp;lt; &lt;span class=&quot;parent&quot;&gt;ActiveRecord::Migration&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;up&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    create_table &lt;span class=&quot;symbol&quot;&gt;:peliculas&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; |t|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.string &lt;span class=&quot;symbol&quot;&gt;:titulo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.text &lt;span class=&quot;symbol&quot;&gt;:descripcion&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.string &lt;span class=&quot;symbol&quot;&gt;:url_caratula&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.timestamps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;down&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    drop_table &lt;span class=&quot;symbol&quot;&gt;:peliculas&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Para terminar ejecutamos la migración. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;rake &lt;span class=&quot;symbol&quot;&gt;db:&lt;/span&gt;migrate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y finalmente para revisar nuestro ejemplo activamos el webserver&lt;/p&gt;
+&lt;p&gt;   $ ruby script/server&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RoR&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="debian" scheme="https://luisfuentes.me/tags/debian/"/>
+    
+      <category term="guia" scheme="https://luisfuentes.me/tags/guia/"/>
+    
+      <category term="ror" scheme="https://luisfuentes.me/tags/ror/"/>
+    
+      <category term="ruby" scheme="https://luisfuentes.me/tags/ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crear un RuleFactory en OpenGTS</title>
+    <link href="https://luisfuentes.me/opengts-rulefactory/"/>
+    <id>https://luisfuentes.me/opengts-rulefactory/</id>
+    <published>2012-08-02T19:10:17.000Z</published>
+    <updated>2016-04-23T19:23:14.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Primero activamos las casillas en OpenGTS y los campos en la BD&lt;/p&gt;
+&lt;p&gt;En el archivo StartupInit.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Device.setRuleFactory(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; RuleFactoryExample());
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo config.conf modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;startupInit&lt;span class=&quot;class&quot;&gt;.Device&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.NotificationFieldInfo&lt;/span&gt;=true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el Archivo private.xml modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;Property&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;deviceInfo.showNotificationFields&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&amp;lt;/&lt;span class=&quot;keyword&quot;&gt;Property&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo RuleFactoryExample.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; SEND_NOTIFICATION = &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo common.conf modificamos:&lt;/p&gt;
+&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# --- SMTP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# --- (outgoing email configuration parameters)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;##smtp.host=localhost&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.debug=false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.host=smtp.gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.port=&lt;span class=&quot;number&quot;&gt;465&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.user=Mail@gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.user.emailAddress=Mail@gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.password=Password&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.enableSSL=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.enableTLS=true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.threadModel.show=false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Actualizamos la bd:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bin/dbAdmin.&lt;span class=&quot;keyword&quot;&gt;pl&lt;/span&gt; -tables=&lt;span class=&quot;keyword&quot;&gt;ca&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y finalmenet compilamos :D&lt;/p&gt;
+&lt;p&gt;Nota: Si no aparecen los nuevos campos, borramos manualmente track.war&lt;/p&gt;
+&lt;p&gt;Stop Tomcat:&lt;br&gt;    &lt;code&gt;$CATALINA_HOME/bin/shutdown.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Delete the existing “track” servlet:&lt;br&gt;    &lt;code&gt;rm -rf $CATALINA_HOME/webapps/track*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Deploy the new “track” servlet:&lt;br&gt;    &lt;code&gt;cp $GTS_HOME/build/track.war $CATALINA_HOME/webapps/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Restart Tomcat:&lt;br&gt;    &lt;code&gt;`$CATALINA_HOME/bin/startup.sh&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Primero activamos las casillas en OpenGTS y los campos en la BD&lt;/p&gt;
+&lt;p&gt;En el archivo StartupInit.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Device.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Instalar OpenGTS en Linux</title>
+    <link href="https://luisfuentes.me/instalacion-opengts-linux/"/>
+    <id>https://luisfuentes.me/instalacion-opengts-linux/</id>
+    <published>2012-02-24T17:52:26.000Z</published>
+    <updated>2016-04-23T19:03:09.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;OpenGTS™ (“Open GPS Tracking System”) es el primer proyecto código abierto diseñado para proporcionar mediante un entorno web el seguimiento de una “flota” de vehículos a través de GPS.&lt;/p&gt;
+&lt;p&gt;Diseñado en Java y JavaScript utilizando tecnologías tales como Apache Tomcat para el despliegue de servicios web y MySQL para el almacenamiento de datos. Como tal, OpenGTS se ejecutará en cualquier S.O. que soporte estas tecnologías (incluyendo Linux, Mac OS X, FreeBSD, OpenBSD, Solaris, Windows XP, Windows Vista, 20XX de Windows, y más).&lt;/p&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;h4 id=&quot;1-_Instalando_el_Software_necesario_para_correr_OpenGTS_en_linux&quot;&gt;1. Instalando el Software necesario para correr OpenGTS en linux&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.1 Descarga Java Compiler&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: JDK 6 Update XX&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u26-download-400750.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nota: Descarga solo el JDK 6 Update XX&lt;/p&gt;
+&lt;p&gt;o en terminal ingresamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude install &lt;span class=&quot;keyword&quot;&gt;sun&lt;/span&gt;-java6-jdk &lt;span class=&quot;keyword&quot;&gt;sun&lt;/span&gt;-java6-fonts
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;luego verificamos la versión instalada con:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ java -&lt;span class=&quot;property&quot;&gt;version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Asegúrate de estos datos:&lt;br&gt;&lt;figure class=&quot;highlight lisp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;java version &lt;span class=&quot;string&quot;&gt;&quot;1.6.0_26&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;TM&lt;/span&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1.6&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;_26-b03)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java HotSpot&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;TM&lt;/span&gt;)&lt;/span&gt; Server VM &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;20.1&lt;/span&gt;-b02, mixed mode)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Luego creamos una variable de entorno de java en el archivo /etc/profile&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; JAVA_HOME=/usr/lib/jvm/java-&lt;span class=&quot;number&quot;&gt;1.6&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;-openjdk
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(Asegúrate que &lt;em&gt;/usr/lib/jvm/java-1.6.0-openjdk&lt;/em&gt; sea la ruta correcta)&lt;/p&gt;
+&lt;p&gt;Se recomienda generar un enlace simbólico de “Java” en &lt;em&gt;/usr/local/&lt;/em&gt; que apunte a la dirección del JDK:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd /usr/local
+ $ ln -s &lt;span class=&quot;variable&quot;&gt;$JAVA&lt;/span&gt;_HOME java
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.2 Descarga JavaMail Support&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Sun JavaMail API (v1.4.4)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/java/javamail/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zip: javamail1_4_4.zip&lt;/p&gt;
+&lt;p&gt;Instalar el Archivo Mail.jar en la librería extendida de Java&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cd /&lt;span class=&quot;constant&quot;&gt;Downloads&lt;/span&gt;/javamail-&lt;span class=&quot;number&quot;&gt;1.4&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;
+ &lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cp mail.jar &lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt;/jre/&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;lib&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;ext&lt;/span&gt;/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.3 Apache Ant Build Tool&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Ant v1.8.2&lt;br&gt;&lt;a href=&quot;http://ant.apache.org/bindownload.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; o&lt;br&gt;&lt;a href=&quot;http://apache.freeby.pctools.cl//ant/binaries/apache-ant-1.8.2-bin.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar Zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;o en terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ant
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.4 Apache “Tomcat” Servlet Container&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Apache Tomcat v7.x servlet container&lt;br&gt;&lt;a href=&quot;http://tomcat.apache.org/download-70.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; o&lt;br&gt;&lt;a href=&quot;http://apache.freeby.pctools.cl/tomcat/tomcat-7/v7.0.26/bin/apache-tomcat-7.0.26.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar Zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Se recomienda instalarlo en el directorio &lt;em&gt;usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ tar -zxvf apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;.tar.gz
+ $ mv apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt; /usr/local/
+ $ cd /usr/local/
+ $ chmod -R a+r apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Crear la variable de entorno en el archivo &lt;em&gt;/etc/profile/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; CATALINA_HOME=/usr/local/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Se recomienda generar un enlace simbólico de “Tomcat” en &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ln &lt;span class=&quot;operator&quot;&gt;-s&lt;/span&gt; /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;26&lt;/span&gt; /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/tomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Verificamos que los archivos en &lt;em&gt;CATALINA_HOME/bin&lt;/em&gt; tienen permisos de ejecución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$CATALINA&lt;/span&gt;_HOME/bin
+ $ chmod a+x *.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.5 MySQL Database Provider&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: MySQL v5.X.X&lt;br&gt;&lt;a href=&quot;http://dev.mysql.com/downloads/mysql/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;o en terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql-&lt;span class=&quot;keyword&quot;&gt;server&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.6 MySQL JDBC Driver&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: MySQL Connector/J v5.1.XX JDBC driver&lt;br&gt;&lt;a href=&quot;http://dev.mysql.com/downloads/connector/j/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; el Zip: mysql-connector-java-5.1.XX.tar.gz&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cp mysql-connector-java-&lt;span class=&quot;number&quot;&gt;5.1&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;17&lt;/span&gt;-bin.jar       &lt;span class=&quot;constant&quot;&gt;JAVA_HOME&lt;/span&gt;/jre/&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;lib&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;ext&lt;/span&gt;/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;2-_Instalando_y_compilando_OpenGTS&quot;&gt;2. Instalando y compilando OpenGTS&lt;/h4&gt;&lt;p&gt;Copiamos la versión de OpenGTS descargada a &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.zip /usr/local/
+ $ unzip OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.zip
+ $ chown -R root:staff OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Crear la variable de entorno en el archivo &lt;em&gt;/etc/profile/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; CATALINA_HOME=/usr/local/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Se recomienda generar un enlace simbolico de “OpenGTS” en &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd /usr/local
+ $ ln -s &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME gts
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2.1 Inicializamos las tablas de la base de datos SQL&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/initdb.sh -rootUser=root -rootPass=root
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2.2 Comprobamos la instalación con el siguiente script&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/checkInstall.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;El resultado debe ser No errors reported, No warnings reported.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.3 Creamos la cuenta “sysadmin”&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/admin.sh Account -account=sysadmin -pass=&lt;span class=&quot;number&quot;&gt;123456&lt;/span&gt; -create
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-_Instalando_“track-war”&quot;&gt;3. Instalando “track.war”&lt;/h4&gt;&lt;p&gt;Para generar track.war se debe ejecutar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ ant track
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Una vez creado el archivo, se instala con&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ ant track.deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para terminar reiniciamos Tomcat&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ CATALIN&lt;span class=&quot;built_in&quot;&gt;A_HOME&lt;/span&gt;/bin/shutdown.sh
+ $ CATALIN&lt;span class=&quot;built_in&quot;&gt;A_HOME&lt;/span&gt;/bin/startup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ingresamos a nuestro servidor OpenGTS&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/track/Track&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080/track/Track&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;OpenGTS™ (“Open GPS Tracking System”) es el primer proyecto código abierto diseñado para proporcio
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://luisfuentes.me/tags/Java/"/>
+    
+      <category term="Linux" scheme="https://luisfuentes.me/tags/Linux/"/>
+    
+      <category term="OpenGTS" scheme="https://luisfuentes.me/tags/OpenGTS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hola Mundo</title>
+    <link href="https://luisfuentes.me/hola-mundo/"/>
+    <id>https://luisfuentes.me/hola-mundo/</id>
+    <published>2012-01-20T17:47:41.000Z</published>
+    <updated>2016-04-23T18:55:09.000Z</updated>
+    
+    <content type="html">&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;HolaMundo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;String[] args&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    System.&lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt;.println(&lt;span class=&quot;string&quot;&gt;&quot;Hola Mundo&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://luisfuentes.me/tags/Java/"/>
     
   </entry>
   

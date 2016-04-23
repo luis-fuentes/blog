@@ -2,9 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luisfuentes.me/opengts-rulefactory/</loc>
+    
+    <lastmod>2016-04-23T19:23:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/ror-debian/</loc>
+    
+    <lastmod>2016-04-23T19:08:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/instalacion-opengts-linux/</loc>
+    
+    <lastmod>2016-04-23T19:03:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/hola-mundo/</loc>
+    
+    <lastmod>2016-04-23T18:55:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/guia-yeoman/</loc>
+    
+    <lastmod>2016-04-23T18:46:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://luisfuentes.me/guia-vagrant/</loc>
     
-    <lastmod>2016-04-23T07:30:50.000Z</lastmod>
+    <lastmod>2016-04-23T18:45:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/desarrollando-con-webpack/</loc>
+    
+    <lastmod>2016-04-23T18:42:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/primeros-pasos-webpack/</loc>
+    
+    <lastmod>2016-04-23T18:42:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/</loc>
+    
+    <lastmod>2016-04-23T18:35:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/guia-homebrew/</loc>
+    
+    <lastmod>2016-04-23T18:33:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://luisfuentes.me/guia-npm/</loc>
+    
+    <lastmod>2016-04-23T18:31:45.000Z</lastmod>
     
   </url>
   
@@ -16,37 +86,9 @@
   </url>
   
   <url>
-    <loc>https://luisfuentes.me/primeros-pasos-webpack/</loc>
-    
-    <lastmod>2016-04-23T07:30:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://luisfuentes.me/guia-npm/</loc>
-    
-    <lastmod>2016-04-23T07:29:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/</loc>
-    
-    <lastmod>2016-04-23T07:28:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/</loc>
     
     <lastmod>2016-04-23T07:28:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://luisfuentes.me/desarrollando-con-webpack/</loc>
-    
-    <lastmod>2016-04-23T07:08:14.000Z</lastmod>
     
   </url>
   

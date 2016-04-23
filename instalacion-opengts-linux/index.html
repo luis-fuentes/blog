@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Instalar OpenGTS en Linux · Notas en la Web</title><meta name="description" content="Instalar OpenGTS en Linux - Luis Fuentes"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo-blog.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">ROOT</a></li><li class="nav-list-item"><a href="/archives" target="_self" class="nav-list-link">ARCHIVOS</a></li><li class="nav-list-item"><a href="https://github.com/luis-fuentes" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Instalar OpenGTS en Linux</h1><div class="post-time">24 de Feb. de 2012</div><div class="post-content"><h3 id="Introducción">Introducción</h3><p>OpenGTS™ (“Open GPS Tracking System”) es el primer proyecto código abierto diseñado para proporcionar mediante un entorno web el seguimiento de una “flota” de vehículos a través de GPS.</p>
+<p>Diseñado en Java y JavaScript utilizando tecnologías tales como Apache Tomcat para el despliegue de servicios web y MySQL para el almacenamiento de datos. Como tal, OpenGTS se ejecutará en cualquier S.O. que soporte estas tecnologías (incluyendo Linux, Mac OS X, FreeBSD, OpenBSD, Solaris, Windows XP, Windows Vista, 20XX de Windows, y más).</p>
+<h3 id="Instalación">Instalación</h3><h4 id="1-_Instalando_el_Software_necesario_para_correr_OpenGTS_en_linux">1. Instalando el Software necesario para correr OpenGTS en linux</h4><p><strong>1.1 Descarga Java Compiler</strong></p>
+<p>Package: JDK 6 Update XX</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u26-download-400750.html" target="_blank" rel="external">Descargar</a></p>
+<p>Nota: Descarga solo el JDK 6 Update XX</p>
+<p>o en terminal ingresamos:</p>
+<pre><code>$ aptitude install <span class="keyword">sun</span>-java6-jdk <span class="keyword">sun</span>-java6-fonts
+</code></pre><p>luego verificamos la versión instalada con:</p>
+<pre><code>$ java -<span class="property">version</span>
+</code></pre><p>Asegúrate de estos datos:<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.6.0_26"</span></span><br><span class="line">Java<span class="list">(<span class="keyword">TM</span>)</span> SE Runtime Environment <span class="list">(<span class="keyword">build</span> <span class="number">1.6</span>.<span class="number">0</span>_26-b03)</span></span><br><span class="line">Java HotSpot<span class="list">(<span class="keyword">TM</span>)</span> Server VM <span class="list">(<span class="keyword">build</span> <span class="number">20.1</span>-b02, mixed mode)</span></span><br></pre></td></tr></table></figure></p>
+<p>Luego creamos una variable de entorno de java en el archivo /etc/profile</p>
+<pre><code>$ <span class="keyword">export</span> JAVA_HOME=/usr/lib/jvm/java-<span class="number">1.6</span><span class="number">.0</span>-openjdk
+</code></pre><p>(Asegúrate que <em>/usr/lib/jvm/java-1.6.0-openjdk</em> sea la ruta correcta)</p>
+<p>Se recomienda generar un enlace simbólico de “Java” en <em>/usr/local/</em> que apunte a la dirección del JDK:</p>
+<pre><code>$ cd /usr/local
+ $ ln -s <span class="variable">$JAVA</span>_HOME java
+</code></pre><p><strong>1.2 Descarga JavaMail Support</strong></p>
+<p>Package: Sun JavaMail API (v1.4.4)</p>
+<p><a href="http://www.oracle.com/technetwork/java/javamail/index.html" target="_blank" rel="external">Descargar</a></p>
+<p>Zip: javamail1_4_4.zip</p>
+<p>Instalar el Archivo Mail.jar en la librería extendida de Java</p>
+<pre><code><span class="variable">$ </span>cd /<span class="constant">Downloads</span>/javamail-<span class="number">1.4</span>.<span class="number">4</span>
+ <span class="variable">$ </span>cp mail.jar <span class="variable">$JAVA_HOME</span>/jre/<span class="class"><span class="keyword">lib</span>/<span class="title">ext</span>/</span>
+</code></pre><p><strong>1.3 Apache Ant Build Tool</strong></p>
+<p>Package: Ant v1.8.2<br><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">Descargar</a> o<br><a href="http://apache.freeby.pctools.cl//ant/binaries/apache-ant-1.8.2-bin.tar.gz" target="_blank" rel="external">Descargar Zip</a></p>
+<p>o en terminal:</p>
+<pre><code>$ aptitude <span class="keyword">install</span> ant
+</code></pre><p><strong>1.4 Apache “Tomcat” Servlet Container</strong></p>
+<p>Package: Apache Tomcat v7.x servlet container<br><a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">Descargar</a> o<br><a href="http://apache.freeby.pctools.cl/tomcat/tomcat-7/v7.0.26/bin/apache-tomcat-7.0.26.tar.gz" target="_blank" rel="external">Descargar Zip</a></p>
+<p>Se recomienda instalarlo en el directorio <em>usr/local/</em></p>
+<pre><code>$ tar -zxvf apache-tomcat-<span class="number">7.0</span><span class="number">.26</span>.tar.gz
+ $ mv apache-tomcat-<span class="number">7.0</span><span class="number">.26</span> /usr/local/
+ $ cd /usr/local/
+ $ chmod -R a+r apache-tomcat-<span class="number">7.0</span><span class="number">.26</span> 
+</code></pre><p>Crear la variable de entorno en el archivo <em>/etc/profile/</em></p>
+<pre><code>$ <span class="keyword">export</span> CATALINA_HOME=/usr/local/apache-tomcat-<span class="number">7.0</span><span class="number">.26</span>
+</code></pre><p>Se recomienda generar un enlace simbólico de “Tomcat” en <em>/usr/local/</em></p>
+<pre><code>$ ln <span class="operator">-s</span> /usr/<span class="built_in">local</span>/apache-tomcat-<span class="number">7.0</span>.<span class="number">26</span> /usr/<span class="built_in">local</span>/tomcat
+</code></pre><p>Verificamos que los archivos en <em>CATALINA_HOME/bin</em> tienen permisos de ejecución:</p>
+<pre><code>$ cd <span class="variable">$CATALINA</span>_HOME/bin
+ $ chmod a+x *.sh
+</code></pre><p><strong>1.5 MySQL Database Provider</strong></p>
+<p>Package: MySQL v5.X.X<br><a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">Descargar</a></p>
+<p>o en terminal:</p>
+<pre><code>$ aptitude <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span>
+</code></pre><p><strong>1.6 MySQL JDBC Driver</strong></p>
+<p>Package: MySQL Connector/J v5.1.XX JDBC driver<br><a href="http://dev.mysql.com/downloads/connector/j/" target="_blank" rel="external">Descargar</a> el Zip: mysql-connector-java-5.1.XX.tar.gz</p>
+<pre><code><span class="variable">$ </span>cp mysql-connector-java-<span class="number">5.1</span>.<span class="number">17</span>-bin.jar       <span class="constant">JAVA_HOME</span>/jre/<span class="class"><span class="keyword">lib</span>/<span class="title">ext</span>/</span>
+</code></pre><h4 id="2-_Instalando_y_compilando_OpenGTS">2. Instalando y compilando OpenGTS</h4><p>Copiamos la versión de OpenGTS descargada a <em>/usr/local/</em></p>
+<pre><code>$ cp OpenGTS_2<span class="number">.3</span><span class="number">.7</span>.zip /usr/local/
+ $ unzip OpenGTS_2<span class="number">.3</span><span class="number">.7</span>.zip
+ $ chown -R root:staff OpenGTS_2<span class="number">.3</span><span class="number">.7</span>
+</code></pre><p>Crear la variable de entorno en el archivo <em>/etc/profile/</em></p>
+<pre><code>$ <span class="keyword">export</span> CATALINA_HOME=/usr/local/apache-tomcat-<span class="number">7.0</span><span class="number">.26</span>
+</code></pre><p>Se recomienda generar un enlace simbolico de “OpenGTS” en <em>/usr/local/</em></p>
+<pre><code>$ cd /usr/local
+ $ ln -s <span class="variable">$GTS</span>_HOME gts
+</code></pre><p><strong>2.1 Inicializamos las tablas de la base de datos SQL</strong></p>
+<pre><code>$ cd <span class="variable">$GTS</span>_HOME
+ $ bin/initdb.sh -rootUser=root -rootPass=root
+</code></pre><p><strong>2.2 Comprobamos la instalación con el siguiente script</strong></p>
+<pre><code>$ cd <span class="variable">$GTS</span>_HOME
+ $ bin/checkInstall.sh
+</code></pre><p>El resultado debe ser No errors reported, No warnings reported.</p>
+<p><strong>2.3 Creamos la cuenta “sysadmin”</strong></p>
+<pre><code>$ cd <span class="variable">$GTS</span>_HOME
+ $ bin/admin.sh Account -account=sysadmin -pass=<span class="number">123456</span> -create
+</code></pre><h4 id="3-_Instalando_“track-war”">3. Instalando “track.war”</h4><p>Para generar track.war se debe ejecutar</p>
+<pre><code>$ cd <span class="variable">$GTS</span>_HOME
+ $ ant track
+</code></pre><p>Una vez creado el archivo, se instala con</p>
+<pre><code>$ cd <span class="variable">$GTS</span>_HOME
+ $ ant track.deploy
+</code></pre><p>Para terminar reiniciamos Tomcat</p>
+<pre><code>$ CATALIN<span class="built_in">A_HOME</span>/bin/shutdown.sh
+ $ CATALIN<span class="built_in">A_HOME</span>/bin/startup.sh
+</code></pre><p>ingresamos a nuestro servidor OpenGTS</p>
+<p><a href="http://localhost:8080/track/Track" target="_blank" rel="external">http://localhost:8080/track/Track</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/opengts-rulefactory/" class="prev">ANT</a><a href="/hola-mundo/" class="next">SIG</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'luisfuentes';
+var disqus_identifier = 'instalacion-opengts-linux/';
+var disqus_title = 'Instalar OpenGTS en Linux';
+var disqus_url = 'https://luisfuentes.me/instalacion-opengts-linux/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//luisfuentes.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2016 <a href="https://luisfuentes.me">Luis Fuentes</a>, Valdivia - Chile.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-64770465-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
