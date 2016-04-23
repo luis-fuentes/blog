@@ -386,7 +386,7 @@
     <link href="https://luisfuentes.me/guia-yeoman/"/>
     <id>https://luisfuentes.me/guia-yeoman/</id>
     <published>2014-07-05T18:26:26.000Z</published>
-    <updated>2016-04-23T18:46:03.000Z</updated>
+    <updated>2016-04-23T21:11:42.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -447,7 +447,7 @@
     <link href="https://luisfuentes.me/guia-homebrew/"/>
     <id>https://luisfuentes.me/guia-homebrew/</id>
     <published>2014-04-23T17:26:26.000Z</published>
-    <updated>2016-04-23T18:33:54.000Z</updated>
+    <updated>2016-04-23T21:14:30.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;¿Que_es_homebrew?&quot;&gt;¿Que es homebrew?&lt;/h3&gt;&lt;p&gt;Homebrew es un gestor de paquetes esencial para OSX, desarrollado en ruby y para los que vienen de linux, funciona parecido a &lt;code&gt;apt-get&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -476,12 +476,12 @@
     
     </summary>
     
+      <category term="OS X" scheme="https://luisfuentes.me/categories/OS-X/"/>
     
-      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+      <category term="Guías" scheme="https://luisfuentes.me/categories/OS-X/Guias/"/>
     
-      <category term="Homebrew" scheme="https://luisfuentes.me/tags/Homebrew/"/>
+      <category term="Homebrew" scheme="https://luisfuentes.me/categories/OS-X/Guias/Homebrew/"/>
     
-      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
     
   </entry>
   
@@ -490,11 +490,12 @@
     <link href="https://luisfuentes.me/ror-debian/"/>
     <id>https://luisfuentes.me/ror-debian/</id>
     <published>2013-06-03T19:05:53.000Z</published>
-    <updated>2016-04-23T19:08:29.000Z</updated>
+    <updated>2016-04-23T19:51:25.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RoR&lt;/a&gt; es instalar ruby, abre el terminal y:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ruby
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instalamos ruby gems:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Instalamos ruby gems:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; rubygems
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunos comandos para manejar las gemas son:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;//Actualizar ruby
@@ -527,7 +528,9 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RoR&lt;/a&gt;
+      &lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot;&gt;RoR&lt;/a&gt; es instalar ruby, abre el terminal y:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ruby
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
