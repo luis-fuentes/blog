@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://luisfuentes.me/"/>
-  <updated>2015-09-18T15:56:14.000Z</updated>
+  <updated>2016-04-23T07:08:14.000Z</updated>
   <id>https://luisfuentes.me/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="https://luisfuentes.me/desarrollando-con-webpack/"/>
     <id>https://luisfuentes.me/desarrollando-con-webpack/</id>
     <published>2015-07-25T04:04:25.000Z</published>
-    <updated>2015-09-18T15:56:14.000Z</updated>
+    <updated>2016-04-23T07:08:14.000Z</updated>
     
-    <content type="html">&lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.&lt;br&gt;Lo primero es instalar webpack-dev-server&lt;/p&gt;
+    <content type="html">&lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Lo primero es instalar webpack-dev-server&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ npm i webpack-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;-server --&lt;span class=&quot;built_in&quot;&gt;save&lt;/span&gt;-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ademas debemos modificar nuestro package.json para usarlo:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;package.json&lt;/strong&gt;&lt;/p&gt;
@@ -73,7 +75,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que
+      &lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  &lt;/p&gt;
     
     </summary>
     
@@ -91,9 +93,10 @@
     <link href="https://luisfuentes.me/primeros-pasos-webpack/"/>
     <id>https://luisfuentes.me/primeros-pasos-webpack/</id>
     <published>2015-07-03T05:45:44.000Z</published>
-    <updated>2015-09-18T22:48:58.000Z</updated>
+    <updated>2016-04-23T07:30:11.000Z</updated>
     
     <content type="html">&lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.&lt;br&gt;Primero asegúrate que tienes instalado NodeJS y &lt;a href=&quot;https://luisfuentes.me/guia-npm/&quot;&gt;NPM&lt;/a&gt;. Luego en el terminal ejecutamos.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;mkdir&lt;/span&gt; webpack-&lt;span class=&quot;keyword&quot;&gt;app&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;cd&lt;/span&gt; webpack-&lt;span class=&quot;keyword&quot;&gt;app&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;Esto iniciará nuestro proyecto y creará un nuevo package.json, luego instalamos Webpack y la librería browser de manera local y lo agregamos como una dependencia de desarrollo. &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ npm i webpack &lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;identifier&quot;&gt;&lt;/span&gt;&lt;span class=&quot;title&quot;&gt;-libs-browser&lt;/span&gt; --save-dev
@@ -125,7 +128,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.
+      &lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.&lt;br&gt;Primero asegúrate que tienes instalado NodeJS y &lt;a href=&quot;https://luisfuentes.me/guia-npm/&quot;&gt;NPM&lt;/a&gt;. Luego en el terminal ejecutamos.&lt;/p&gt;
     
     </summary>
     
@@ -143,9 +146,10 @@
     <link href="https://luisfuentes.me/introduccion-webpack/"/>
     <id>https://luisfuentes.me/introduccion-webpack/</id>
     <published>2015-06-25T05:48:45.000Z</published>
-    <updated>2015-09-19T20:29:33.000Z</updated>
+    <updated>2016-04-23T07:30:17.000Z</updated>
     
     <content type="html">&lt;p&gt;Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;Este problema se ha intensificado por el aumento de las WebApps single-page. Estas tienden a basarse en varias bibliotecas bastante pesadas ​​y complejas. Y lo ideal sería cargar solo lo que necesitamos.&lt;/p&gt;
 &lt;p&gt;Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue &lt;a href=&quot;http://gruntjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grunt&lt;/a&gt; que se basa en una arquitectura de plugins. Luego fue desplazada por &lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gulp&lt;/a&gt; que en vez de plugins usaba código para automatizar las tareas. &lt;/p&gt;
 &lt;p&gt;Javascript no tiene un concepto claro de módulos hasta ES6 por lo que trabajar con estos siempre fue un problema. y estábamos aun en los años 90 en lo que se refiere a browser environment. &lt;/p&gt;
@@ -173,7 +177,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bas
+      &lt;p&gt;Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. &lt;/p&gt;
     
     </summary>
     
@@ -191,9 +195,10 @@
     <link href="https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/"/>
     <id>https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/</id>
     <published>2015-05-24T05:55:52.000Z</published>
-    <updated>2015-09-19T20:30:33.000Z</updated>
+    <updated>2016-04-23T07:28:45.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;Me imagino que la mayoría conoce &lt;a href=&quot;http://www.sublimetext.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sublime Text&lt;/a&gt; por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/eslint/eslint&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ESLint&lt;/a&gt; es una herramienta que identifica y reporta patrones y errores en código ECMAScript/JavaScript. es similar a JS-Lint y JSHint con algunas diferencias:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ESLint usa Espree para analizar JavaScript.&lt;/li&gt;
@@ -224,7 +229,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;Me imagino que la mayoría conoce &lt;a href=&quot;http://www.sublimetext.com&quot; target=&quot;_blank&quot; rel=&quot;externa
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;Me imagino que la mayoría conoce &lt;a href=&quot;http://www.sublimetext.com&quot;&gt;Sublime Text&lt;/a&gt; por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. &lt;/p&gt;
     
     </summary>
     
@@ -254,9 +259,10 @@
     <link href="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/"/>
     <id>https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/</id>
     <published>2015-05-08T20:45:29.000Z</published>
-    <updated>2015-09-19T20:47:31.000Z</updated>
+    <updated>2016-04-23T07:28:57.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Primero descarga &lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; desde la web oficial o por terminal ejecuta&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para crear una web base ejecutamos&lt;/p&gt;
@@ -271,7 +277,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; es framework para websites, té
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt; es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. &lt;/p&gt;
     
     </summary>
     
@@ -289,10 +295,11 @@
     <link href="https://luisfuentes.me/guia-vagrant/"/>
     <id>https://luisfuentes.me/guia-vagrant/</id>
     <published>2015-01-15T19:48:06.000Z</published>
-    <updated>2015-09-19T20:53:09.000Z</updated>
+    <updated>2016-04-23T07:30:50.000Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/logo_wide-dce715a5.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
+    <content type="html">&lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;/images/logo_wide-dce715a5.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;Instalación&quot;&gt;Instalación&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;El primer paso es descargar e instalar &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;VirtualBox&lt;/a&gt; (hay otras alternativas pero esta es gratis).&lt;/p&gt;
 &lt;/li&gt;
@@ -312,8 +319,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/images/logo_wide-dce715a5.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantu
+      &lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
     
     </summary>
     
@@ -331,10 +337,11 @@
     <link href="https://luisfuentes.me/guia-npm/"/>
     <id>https://luisfuentes.me/guia-npm/</id>
     <published>2014-11-22T19:48:32.000Z</published>
-    <updated>2015-09-19T21:01:07.000Z</updated>
+    <updated>2016-04-23T07:29:37.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/npm.png&quot; alt=&quot;NPM logo&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
+    <content type="html">&lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;/images/npm.png&quot; alt=&quot;NPM logo&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Viene instalado por defecto con la instalación de nodejs pero si no lo tienes, lo puedes instalar a través de &lt;a href=&quot;https://luisfuentes.me/guia-homebrew/&quot;&gt;Homebrew&lt;/a&gt; con el siguiente comando:&lt;/p&gt;
 &lt;p&gt;  $ brew install node&lt;/p&gt;
 &lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;ul&gt;
@@ -361,8 +368,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/npm.png&quot; alt=&quot;NPM logo&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot; target=&quot;_blank&quot;
+      &lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
     
     </summary>
     
