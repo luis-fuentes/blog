@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Notas en la Web</title>
+  <subtitle>Javascript Developer</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://luisfuentes.me/"/>
+  <updated>2016-04-23T18:42:56.000Z</updated>
+  <id>https://luisfuentes.me/</id>
+  
+  <author>
+    <name>Luis Fuentes</name>
+    <email>hola@luisfuentes.me</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Desarrollando con Webpack</title>
+    <link href="https://luisfuentes.me/desarrollando-con-webpack/"/>
+    <id>https://luisfuentes.me/desarrollando-con-webpack/</id>
+    <published>2015-08-25T04:04:25.000Z</published>
+    <updated>2016-04-23T18:42:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Lo primero es instalar webpack-dev-server&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm i webpack-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;-server --&lt;span class=&quot;built_in&quot;&gt;save&lt;/span&gt;-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ademas debemos modificar nuestro package.json para usarlo:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;package.json&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;build&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;webpack&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;webpack-dev-server --config webpack.development.js --devtool eval-source --progress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; --colors --hot --content-base build&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  Creamos un nuevo archivo de configuración:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack.development.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight typescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ROOT_PATH = path.resolve(__dirname);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  entry: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;webpack/hot/dev-server&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;webpack-dev-server/client?http://localhost:8080&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;app/main.js&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  output: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path: path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;build&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    filename: &lt;span class=&quot;string&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ahora cuento ejecutes &lt;code&gt;$ npm start&lt;/code&gt; en tu terminal se ejecutaran los siguientes scripts declarados en package.json&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;webpack-dev-server&lt;/strong&gt; - Inicia el server en localhost:8080&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–config webpack.development.js&lt;/strong&gt; - Apunta a nuestro archivo de configuración. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–devtool eval-source&lt;/strong&gt; - Crea la ruta de nuestras urls, para que luego las puedas apuntar con el nombre del archivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–progress&lt;/strong&gt; - Muestra el progreso de el generador. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–colors&lt;/strong&gt; - Agrega colores al terminal. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–hot&lt;/strong&gt; - habilita la carga en caliente o hot loading.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;–content-base build&lt;/strong&gt; - Apunta a build para seguir ocupando index.html(eliminaremos esto luego)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ahora cada vez que ejecutes &lt;code&gt;$ npm start&lt;/code&gt; se iniciara el servidor en el puerto 8080 y cada vez que cambies algún archivo estos se generarán automáticamente.&lt;/p&gt;
+&lt;p&gt;También podemos configurar Webpack para que busque cambios en nuestros archivos css y los actualiza, primero instalamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm i css-loader style-loader --&lt;span class=&quot;built_in&quot;&gt;save&lt;/span&gt;-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;y modificamos nuestro archivo webpack para que busque y cargue todos los archivos terminados en .css.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack.development.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight typescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ROOT_PATH = path.resolve(__dirname);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  entry: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;webpack-dev-server/client?http://localhost:8080&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;webpack/hot/dev-server&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;app/main&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  output: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path: path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;build&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    filename: &lt;span class=&quot;string&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;: &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    loaders: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        test: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        loaders: [&lt;span class=&quot;string&quot;&gt;&#39;style&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;css&#39;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ahora solo falta un detalle, agregar css a nuestro proyecto…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;app/stylesheets/main.css&lt;/strong&gt; &lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;background&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; cornsilk&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;app/main.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./stylesheets/main.css&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;$ npm start&lt;/code&gt;y ahora podrás modificar el css y los cambios se cargara automagicamente. Pero esto actualmente no esta funcionando en &lt;code&gt;$ npm run build&lt;/code&gt; por lo que tendrías que hacer los mismo cambios en el archivo &lt;em&gt;webpack.config.js&lt;/em&gt;… Para ahorrarnos este trabajo podemos unir nuestro archivos de configuración.&lt;/p&gt;
+&lt;p&gt;Primero instalamos una pequeña utilidad que concatena arrays en lugar de remplazarlos. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm i webpack-&lt;span class=&quot;built_in&quot;&gt;merge&lt;/span&gt; --&lt;span class=&quot;keyword&quot;&gt;save&lt;/span&gt;-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finalmente modificamos nuestros archivos de configuración:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack.config.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight typescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; merge = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;webpack-merge&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; TARGET = process.env.TARGET;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ROOT_PATH = path.resolve(__dirname);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; common = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  entry: [path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;app/main&#39;&lt;/span&gt;)],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  output: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path: path.resolve(ROOT_PATH, &lt;span class=&quot;string&quot;&gt;&#39;build&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    filename: &lt;span class=&quot;string&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;: &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    loaders: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        test: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        loaders: [&lt;span class=&quot;string&quot;&gt;&#39;style&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;css&#39;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(TARGET === &lt;span class=&quot;string&quot;&gt;&#39;build&#39;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = common;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if(TARGET === &#39;dev&#39;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = merge(common, &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    entry: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&#39;webpack-dev-server/client?http://localhost:8080&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&#39;webpack/hot/dev-server&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;package.json&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;build&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;TARGET=build webpack&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;TARGET=dev webpack-dev-server --devtool eval &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--progress --colors --hot --content-base build&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Finalmente nuestro proyecto funciona en base a el archivo &lt;em&gt;index.html&lt;/em&gt; pero cuando comience a crecer, esto puedo generar problemas. Para mejorar esto instalamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm i html-webpack-plugin --&lt;span class=&quot;built_in&quot;&gt;save&lt;/span&gt;-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Eliminamos nuestro archivo &lt;em&gt;index.html&lt;/em&gt; y lo generamos automáticamente en cada build.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack.config.js&lt;/strong&gt; &lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; HtmlWebpackPlugin = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;html-webpack-plugin&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; merge = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;webpack-merge&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; TARGET = process&lt;span class=&quot;built_in&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;built_in&quot;&gt;.&lt;/span&gt;TARGET;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; ROOT_PATH = path&lt;span class=&quot;built_in&quot;&gt;.&lt;/span&gt;resolve(__dirname);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; common = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  plugins: &lt;span class=&quot;preprocessor&quot;&gt;[&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;literal&quot;&gt;new&lt;/span&gt; HtmlWebpackPlugin(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      title: &lt;span class=&quot;string&quot;&gt;&#39;Webpack app&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;markup&quot;&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;También eliminamos &lt;code&gt;--content-base&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;package.json&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;build&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;TARGET=build webpack&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;TARGET=dev webpack-dev-server --devtool &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;eval-source --progress --colors --hot&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Finalmente ejecutamos &lt;code&gt;$ npm run build&lt;/code&gt; y nuestro proyecto se generará automáticamente. Debo mencionar que esta no es la única manera de usar Webpack. algunas personas prefieren usar archivos de configuración separados o configurar presets para ocupar en cada proyecto &lt;a href=&quot;https://github.com/HenrikJoreteg/hjs-webpack&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hjs-webpack&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Código fuente en &lt;a href=&quot;https://github.com/YotaCL/webpack-boilerplate.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;En &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;primeros pasos con Webpack&lt;/a&gt; generamos un proyecto básico pero teníamos que ejecutar &lt;em&gt;$ npm run build&lt;/em&gt; cada vez que hacíamos un cambio… y adicionalmente refrescar el browser. Con algunos simples cambios intentaremos mejorar nuestro workflow de trabajo.  &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Javascript" scheme="https://luisfuentes.me/tags/Javascript/"/>
+    
+      <category term="Webpack" scheme="https://luisfuentes.me/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Primeros pasos con Webpack</title>
+    <link href="https://luisfuentes.me/primeros-pasos-webpack/"/>
+    <id>https://luisfuentes.me/primeros-pasos-webpack/</id>
+    <published>2015-07-13T05:45:44.000Z</published>
+    <updated>2016-04-23T18:42:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.&lt;br&gt;Primero asegúrate que tienes instalado NodeJS y &lt;a href=&quot;https://luisfuentes.me/guia-npm/&quot;&gt;NPM&lt;/a&gt;. Luego en el terminal ejecutamos.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;mkdir&lt;/span&gt; webpack-&lt;span class=&quot;keyword&quot;&gt;app&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;cd&lt;/span&gt; webpack-&lt;span class=&quot;keyword&quot;&gt;app&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Esto iniciará nuestro proyecto y creará un nuevo package.json, luego instalamos Webpack y la librería browser de manera local y lo agregamos como una dependencia de desarrollo. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm i webpack &lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;identifier&quot;&gt;&lt;/span&gt;&lt;span class=&quot;title&quot;&gt;-libs-browser&lt;/span&gt; --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ahora generamos un poco la estructura de esta nuevo proyecto:&lt;/p&gt;
+&lt;figure class=&quot;highlight haml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;-&lt;span class=&quot;ruby&quot;&gt;/app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;  -&lt;span class=&quot;ruby&quot;&gt;main.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;  -&lt;span class=&quot;ruby&quot;&gt;component.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt;/build&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;  -&lt;span class=&quot;ruby&quot;&gt;bundle.js (este se genera automagicamente)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;  -&lt;span class=&quot;ruby&quot;&gt;index.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt;package.json&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt;webpack.config.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Lo primero será configurar webpack para que genere este archivo bundle.js.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack.config.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight typescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  entry: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&#39;app/main&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  output: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    path: path.resolve(__dirname, &lt;span class=&quot;string&quot;&gt;&#39;build&#39;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    filename: &lt;span class=&quot;string&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;La_primera_Build&quot;&gt;La primera Build&lt;/h4&gt;&lt;p&gt;Ahora que tenemos la configuración básica lista, crearemos la típica app Hello World.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;app/component.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; element = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&#39;h1&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  element.innerHTML = &lt;span class=&quot;string&quot;&gt;&#39;Hello world&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; element;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;app/main.js&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; component = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./component&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.body.appendChild(app);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.appendChild(component());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ahora si corres este comando en la terminal&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;node_modules/.bin/webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Webpack generará el archivo bundle.js en base a nuestros archivos en la carpeta /app. El resultado en el terminal debiera ser parecido a esto:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; webpack-app@&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt; build /Users/something/projects/webpack-app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; webpack&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Hash: e02f97146a15a8a5c3a9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Version: webpack &lt;span class=&quot;number&quot;&gt;1.8&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Time: &lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Asset     Size  Chunks             Chunk Names&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bundle.js  &lt;span class=&quot;number&quot;&gt;1.74&lt;/span&gt; kB       &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;  [emitted]  main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] ./app/main.js &lt;span class=&quot;number&quot;&gt;115&lt;/span&gt; bytes &amp;#123;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] ./app/component.js &lt;span class=&quot;number&quot;&gt;134&lt;/span&gt; bytes &amp;#123;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;#125; [built]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ahora para usar de verdad este paquete, nos falta definir nuestro archivo index.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;build/index.html&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;bundle.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Doble click a nuestro archivo index.html y debería estar funcionando. &lt;/p&gt;
+&lt;p&gt;Para terminar podemos agregar webpack a nuestro archivo package.json para que este se ejecute como un comando npm. esto será muy útil en el futuro cuando agreguemos más scripts a nuestra app. Solo agregamos las siguientes lineas:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;package. introducción&lt;/strong&gt; &lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;build&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;webpack&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Listo, para terminar solo ejecutas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm &lt;span class=&quot;command&quot;&gt;run&lt;/span&gt; build
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;y nuestra app se generará…&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Para continuar la &lt;a href=&quot;https://luisfuentes.me/introduccion-webpack/&quot;&gt;introducción&lt;/a&gt; a Webpack voy a implementar un proyecto básico.&lt;br&gt;Primero asegúrate que tienes instalado NodeJS y &lt;a href=&quot;https://luisfuentes.me/guia-npm/&quot;&gt;NPM&lt;/a&gt;. Luego en el terminal ejecutamos.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Javascript" scheme="https://luisfuentes.me/tags/Javascript/"/>
+    
+      <category term="Webpack" scheme="https://luisfuentes.me/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introducción a Webpack</title>
+    <link href="https://luisfuentes.me/introduccion-webpack/"/>
+    <id>https://luisfuentes.me/introduccion-webpack/</id>
+    <published>2015-06-25T05:48:45.000Z</published>
+    <updated>2016-04-23T07:30:17.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Este problema se ha intensificado por el aumento de las WebApps single-page. Estas tienden a basarse en varias bibliotecas bastante pesadas ​​y complejas. Y lo ideal sería cargar solo lo que necesitamos.&lt;/p&gt;
+&lt;p&gt;Para mejorar y automatizar el trabajo con estas librerías nacieron herramientas llamadas Task-Runer, la primera conocida fue &lt;a href=&quot;http://gruntjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grunt&lt;/a&gt; que se basa en una arquitectura de plugins. Luego fue desplazada por &lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gulp&lt;/a&gt; que en vez de plugins usaba código para automatizar las tareas. &lt;/p&gt;
+&lt;p&gt;Javascript no tiene un concepto claro de módulos hasta ES6 por lo que trabajar con estos siempre fue un problema. y estábamos aun en los años 90 en lo que se refiere a browser environment. &lt;/p&gt;
+&lt;p&gt;Intentando solucionar esto aparecieron herramientas como &lt;a href=&quot;http://browserify.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Browserify&lt;/a&gt; que te dejan requerir módulos en el browser. Y además puedes conectarlo con Gulp para automatizar esta tarea. El ecosistema de Browserify esta compuesto por muchos pequeños módulos, Es un poco más fácil de aprender y es una buena alternativa a Webpack. &lt;/p&gt;
+&lt;h3 id=&quot;Webpack&quot;&gt;Webpack&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/what-is-webpack.png&quot; alt=&quot;¿Que es Webpack?&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://webpack.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Webpack&lt;/a&gt; toma un enfoque más monolítico frente a Browserify. Se puede configurar en base a código y ademas lo puedes extender usando loaders. Básicamente usando ‘require’ puedes requerir los módulos que necesites: CoffeeScript, Sass, Markdown, etc.. &lt;/p&gt;
+&lt;p&gt;Toma todas tus dependencias, las carga a través de loaders y exporta código compatible con el browser. Todo esto se basa en configuración, Aquí les dejo un ejemplo de una configuración del tutorial oficial de Webpack:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;.exports = &lt;/span&gt;{
+  entry: &lt;span class=&quot;string&quot;&gt;&#39;./entry.js&#39;&lt;/span&gt;,
+  output: {
+    path: __dirname,
+    filename: &lt;span class=&quot;string&quot;&gt;&#39;bundle.js&#39;&lt;/span&gt;
+  },
+  &lt;span class=&quot;module&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;: &lt;/span&gt;{
+    loaders: [
+      {
+        test: &lt;span class=&quot;regexp&quot;&gt;/\.css$/&lt;/span&gt;,
+        loader: &lt;span class=&quot;string&quot;&gt;&#39;style!css&#39;&lt;/span&gt;
+      }
+    ]
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para &lt;a href=&quot;https://luisfuentes.me/primeros-pasos-webpack/&quot;&gt;&lt;strong&gt;continuar&lt;/strong&gt;&lt;/a&gt; solo queda desarrollar un proyecto en base a Webpack y así facilitar todo el proceso de desarrollo. &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Para entender Webpack voy a hablar un poco de historia y además alternativas, hace algunos años con hacer un concat a algunos scripts bastaba, pero ahora las bibliotecas javascript han crecido demasiado y a nadie le gusta esperar a que se cargue toda la web para que esta se muestre. &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Javascript" scheme="https://luisfuentes.me/tags/Javascript/"/>
+    
+      <category term="Webpack" scheme="https://luisfuentes.me/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Desarrollando con ESLint y Sublime Text</title>
+    <link href="https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/"/>
+    <id>https://luisfuentes.me/desarrollando-con-eslint-y-sublime-text/</id>
+    <published>2015-05-24T05:55:52.000Z</published>
+    <updated>2016-04-23T07:28:45.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;Me imagino que la mayoría conoce &lt;a href=&quot;http://www.sublimetext.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sublime Text&lt;/a&gt; por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/eslint/eslint&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ESLint&lt;/a&gt; es una herramienta que identifica y reporta patrones y errores en código ECMAScript/JavaScript. es similar a JS-Lint y JSHint con algunas diferencias:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESLint usa Espree para analizar JavaScript.&lt;/li&gt;
+&lt;li&gt;ESLint usa un AST para evaluar patrones en código. &lt;/li&gt;
+&lt;li&gt;ESLint soporta plugins, cada regla es un plugin y puedes agregar más en desarrollo.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Para instalar eslint globalmente usamos npm(además instalaremos un plugin de &lt;a href=&quot;https://github.com/babel/babel-eslint&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel&lt;/a&gt;).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;g&lt;/span&gt; eslint babel-eslint&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Pero recomiendo hacerlo localmente en cada proyecto como dev dependencia.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; install --save-dev eslint&lt;span class=&quot;property&quot;&gt;@latest&lt;/span&gt; babel-eslint&lt;span class=&quot;property&quot;&gt;@latest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Luego creamos un archivo &lt;em&gt;.eslintrc&lt;/em&gt; en el directorio raíz de nuestro proyecto.&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// ¡Quiero usar babel-eslint para el análisis!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;parser&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-eslint&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// El código es para un browser&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;browser&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// En CommonJS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;node&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// Ejemplo de reglas para encontrar errores:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;rules&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;quotes&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;single&quot;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;eol-last&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;no-mixed-requires&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;no-underscore-dangle&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Y agregamos el siguiente script a &lt;em&gt;package.json&lt;/em&gt; para correr el lint mediante npm.&lt;br&gt;&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;lint&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;eslint src&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Configurando_Sublime&quot;&gt;Configurando Sublime&lt;/h3&gt;&lt;p&gt;Lo primero es instalar &lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Package Control&lt;/a&gt; a través de las instrucciones de la web oficial.&lt;/p&gt;
+&lt;p&gt;Mediante package control instalas &lt;a href=&quot;http://sublimelinter.readthedocs.org/en/latest/installation.html#installing-via-pc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SublimeLinter&lt;/a&gt;, por defecto este no incluye linters para ningún lenguaje, por lo que instalaremos &lt;a href=&quot;https://github.com/roadhump/SublimeLinter-eslint#plugin-installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SublimeLinter-contrib-eslint&lt;/a&gt; (desinstala otros linters si es que los tenias). &lt;/p&gt;
+&lt;p&gt;Luego le enseñaremos a sublime a reconocer ES6  instalando el paquete &lt;a href=&quot;https://github.com/babel/babel-sublime&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;babel-sublime&lt;/a&gt;. Posteriormente elige este paquete como la sintaxis por defecto para archivos &lt;em&gt;.js&lt;/em&gt; y &lt;em&gt;.jsx&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Solo nos falta definir en sublime-linter que sublime-babel es una variación de javascript. Para esto vamos a &lt;em&gt;SublimeLinter Settings — User&lt;/em&gt; en el menu de comandos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/1-pq13xAtg6aNY6WPp9PncYA.png&quot; alt=&quot;SublimeLinter Settings — User&quot;&gt;&lt;/p&gt;
+&lt;p&gt;y agregamos &lt;em&gt;javascript (babel)&lt;/em&gt; al &lt;em&gt;syntax_map&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/1-FQ3xxn5GZM-mv896YEJV7A.png&quot; alt=&quot;Syntax Map&quot;&gt;&lt;/p&gt;
+&lt;p&gt;¡¡Listo!! solo reinicia sublime y cada vez que grabes analizara tu código. Si quieres cambiar esto para que te avise en mientras escribes. Configuralo en &lt;em&gt;Choose Lint Mode&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/1-Cbqe8u-LssZ_JFTArM77NQ.png&quot; alt=&quot;Choose Lint Mode&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Extra&quot;&gt;Extra&lt;/h3&gt;&lt;p&gt;Si estas desarrollando en react, puedes agregar el &lt;a href=&quot;https://github.com/yannickcr/eslint-plugin-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;plugin de react&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; install --save-dev eslint-plugin-react&lt;span class=&quot;property&quot;&gt;@latest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;y modificar el archivo &lt;em&gt;.eslintrc&lt;/em&gt; más o menos así:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// Soporte a jsx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;ecmaFeatures&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;jsx&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;modules&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// ¡Quiero usar babel-eslint para el análisis!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;parser&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;babel-eslint&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;env&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// El código es para un browser&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;browser&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// En CommonJS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;node&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// Ejemplo de reglas para encontrar errores:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;rules&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;quotes&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;single&quot;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;eol-last&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;no-mixed-requires&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;no-underscore-dangle&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;strict&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;never&quot;&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react/jsx-uses-react&quot;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react/jsx-uses-vars&quot;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react/react-in-jsx-scope&quot;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// Agregamos el plugin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;plugins&quot;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;Me imagino que la mayoría conoce &lt;a href=&quot;http://www.sublimetext.com&quot;&gt;Sublime Text&lt;/a&gt; por lo que les voy a comentar la magia que trae ESlint a nuestro workflow de desarrollo. &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Babel" scheme="https://luisfuentes.me/tags/Babel/"/>
+    
+      <category term="ES2015" scheme="https://luisfuentes.me/tags/ES2015/"/>
+    
+      <category term="ES6" scheme="https://luisfuentes.me/tags/ES6/"/>
+    
+      <category term="ESLint" scheme="https://luisfuentes.me/tags/ESLint/"/>
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Javascript" scheme="https://luisfuentes.me/tags/Javascript/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+      <category term="ReactJS" scheme="https://luisfuentes.me/tags/ReactJS/"/>
+    
+      <category term="Sublime Text" scheme="https://luisfuentes.me/tags/Sublime-Text/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Desarrollando sitios estáticos con Hugo</title>
+    <link href="https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/"/>
+    <id>https://luisfuentes.me/desarrollando-sitios-estaticos-con-hugo/</id>
+    <published>2015-05-08T20:45:29.000Z</published>
+    <updated>2016-04-23T18:35:20.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Primero descarga &lt;a href=&quot;http://gohugo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hugo&lt;/a&gt; desde la web oficial o por terminal ejecuta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para crear una web base ejecutamos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; site /path/&lt;span class=&quot;keyword&quot;&gt;to&lt;/span&gt;/site
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Genera la primera pagina de contenido estático&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; about.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instalamos los themes disponibles&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git &lt;span class=&quot;keyword&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;--recursive&lt;/span&gt; https://github.com/spf13/hugoThemes themes
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y finalmente ejecutamos nuestro server. (agregamos un theme y generamos las paginas en estado draft)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;hugo&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;theme=hyde&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;buildDrafts&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt; es framework para websites, técnicamente es un generador de sitios estáticos. A continuación te mostraré como instalarlo y los primeros pasos con él. &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="Static" scheme="https://luisfuentes.me/tags/Static/"/>
+    
+      <category term="Web" scheme="https://luisfuentes.me/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía Vagrant</title>
+    <link href="https://luisfuentes.me/guia-vagrant/"/>
+    <id>https://luisfuentes.me/guia-vagrant/</id>
+    <published>2015-01-15T19:48:06.000Z</published>
+    <updated>2016-04-23T18:45:20.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;/images/logo-vagrant.png&quot; alt=&quot;Vagrant Logo&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Instalación&quot;&gt;Instalación&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;El primer paso es descargar e instalar &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;VirtualBox&lt;/a&gt; (hay otras alternativas pero esta es gratis).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Descarga e instala &lt;a href=&quot;http://www.vagrantup.com/downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vagrant&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Primeros_pasos&quot;&gt;Primeros pasos&lt;/h4&gt;&lt;p&gt;Para comenzar iniciamos una maquina virtual de vagrant, en este caso instalaré Ubuntu LTS 14.04, que es lo que normalmente uso en mi droplet de &lt;a href=&quot;https://www.digitalocean.com/?refcode=e32ae009945f&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Digital Ocean&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;vagrant init ubuntu/trusty64
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Solo queda levantar el box (La primera vez toma varios minutos).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ vagrant up --provider &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;box&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para ingresar a nuestro box por ssh&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;vagrant ssh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para sincronizar otra carpeta con nuestra box modificamos el archivo &lt;em&gt;Vagrantfile&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;config&lt;span class=&quot;class&quot;&gt;.vm&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.synced_folder&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/UserName/Carpeta&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/vagrant&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Nota: Siguiendo esta &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Guía&lt;/a&gt; podemos configurar virtual hosts en nuestro box.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Introducción&quot;&gt;Introducción&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com&quot;&gt;Vagrant&lt;/a&gt; es una herramienta para crear entornos virtuales de desarrollo, esto viene muy bien para no instalar nada en tu equipo, compartir el mismo entorno entre varios desarrolladores, replicar la exacta configuración de tu servidor de producción en tu maquina local, Tener varios entornos de desarrollo al mismo tiempo, etc…&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+      <category term="Vagrant" scheme="https://luisfuentes.me/tags/Vagrant/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía NPM</title>
+    <link href="https://luisfuentes.me/guia-npm/"/>
+    <id>https://luisfuentes.me/guia-npm/</id>
+    <published>2014-11-22T19:48:32.000Z</published>
+    <updated>2016-04-23T18:31:45.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;/images/npm.png&quot; alt=&quot;NPM logo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Viene instalado por defecto con la instalación de nodejs pero si no lo tienes, lo puedes instalar a través de &lt;a href=&quot;https://luisfuentes.me/guia-homebrew/&quot;&gt;Homebrew&lt;/a&gt; con el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install &lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;identifier&quot;&gt;&lt;/span&gt;&lt;span class=&quot;title&quot;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Primero creamos una aplicación, esto nos generará un archivo &lt;strong&gt;package.json&lt;/strong&gt; que contiene la configuración inicial de nuestro proyecto y donde posteriormente guardaremos las dependencias de esta mismo. Para instalar ejecutamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; init
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Para buscar otros paquetes utilizamos el parámetro search:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; search nombre-del-paquete
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Si descargas un paquete/aplicación de internet, este ya tiene un archivo package.json con todas sus dependencias, en este caso ejecutas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Para agregar y guardar una dependencia a tu proyecto debes ejecutar el siguiente comando cuando agregues un paquete.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; nombre-del-paquete &lt;span class=&quot;comment&quot;&gt;--save&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;En el caso de que el paquete que instalamos solo lo usamos cuando estamos desarrollando agregamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm install nombre-del-paquete --&lt;span class=&quot;built_in&quot;&gt;save&lt;/span&gt;-&lt;span class=&quot;built_in&quot;&gt;dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finalmente para iniciar una aplicación ejecutamos (previamente debemos configurar el archivo package.json) &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; start 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;¿Que_es_NPM?&quot;&gt;¿Que es NPM?&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;NPM&lt;/a&gt; es un gestor de paquetes para javascript, hace algunas versiones es el gestor predeterminado de nodejs y con el podremos gestionar los paquetes para nuestras aplicaciones. &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="NPM" scheme="https://luisfuentes.me/tags/NPM/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía Yeoman</title>
+    <link href="https://luisfuentes.me/guia-yeoman/"/>
+    <id>https://luisfuentes.me/guia-yeoman/</id>
+    <published>2014-07-05T18:26:26.000Z</published>
+    <updated>2016-04-23T21:11:42.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;YO&lt;/strong&gt; - La herramienta de scaffolding de Yeoman.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Bower&lt;/strong&gt; - Es una herramienta de gestión de paquetes y dependencias, mantenida por twitter y una comunidad open-source.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Grunt&lt;/strong&gt; - Es un Task-Runer y sirve para automatizar tareas como compilar o testear.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cada uno de estos proyectos se mantienen de forma independiente por sus respectivas comunidades, pero funcionan bien juntos como parte de un flujo de trabajo prescriptivo para mantenerte eficaz.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/yeoman-workflow.jpg&quot; alt=&quot;Como funciona&quot;&gt;&lt;/p&gt;
+&lt;p&gt;A través de estas herramientas podrás:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Crear el esqueleto de tu app muy rapido y podras elegir entre cientos de plantillas o generadores como &lt;em&gt;HTML5, Boilerplate, Bootstrap, MEAN, Angular, etc…&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compila automáticamente &lt;em&gt;Coffeescript&lt;/em&gt; y &lt;em&gt;Compass&lt;/em&gt;, además refresca automáticamente los cambios en el navegador gracias a &lt;em&gt;LiveReload&lt;/em&gt; (Chao refresh (╯°□°）╯︵ ┻━┻).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compara tus scripts con &lt;em&gt;JSHint&lt;/em&gt; para comprobar el uso de buenas prácticas.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Puede optimizar tus imágenes con &lt;em&gt;OptiPNG&lt;/em&gt; y &lt;em&gt;JPGTran&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sistema de control de paquetes!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Te lanza un servidor propio, entorno de pruebas y mucho más!!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Yeoman(YO) es mantenido por el proyecto Yeoman y sirve para generar el scaffolding de aplicaciones web, utilizando plantillas de scaffolding que se llaman generadores. Normalmente se instala YO y luego el generador que necesites a través de npm.&lt;/p&gt;
+&lt;p&gt;  $ npm install -g yo&lt;/p&gt;
+&lt;p&gt;Si usas una version de npm inferior a 1.2.10 debes instalar Bower y Grunt por separado:&lt;/p&gt;
+&lt;p&gt;  $ npm install -g grunt-cli bower&lt;/p&gt;
+&lt;p&gt;Los generadores oficiales los puedes encontrar en este &lt;a href=&quot;http://yeoman.io/official-generators.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Link&lt;/a&gt;. Y para instalarlos debes ejecutar:&lt;/p&gt;
+&lt;p&gt;  $ npm install -g nombre_generador&lt;/p&gt;
+&lt;p&gt;Luego creas una carpeta para el proyecto y al interior ejecutas:&lt;/p&gt;
+&lt;p&gt;  $ yo nombre_generador –flags&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Nota: Las flags son opcionales y dependen del generador.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/yeoman-banner.png&quot; alt=&quot;Yeoman!&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;El Workflow de Yeoman(YO) se compone de tres herramientas fundamentales para la mejora de la productividad y la satisfacción en la construcción de una aplicación web. Estas herramientas son:&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Guías" scheme="https://luisfuentes.me/tags/Guias/"/>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/tags/OS-X/"/>
+    
+      <category term="Yeoman" scheme="https://luisfuentes.me/tags/Yeoman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guía Homebrew</title>
+    <link href="https://luisfuentes.me/guia-homebrew/"/>
+    <id>https://luisfuentes.me/guia-homebrew/</id>
+    <published>2014-04-23T17:26:26.000Z</published>
+    <updated>2016-04-23T21:14:30.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;¿Que_es_homebrew?&quot;&gt;¿Que es homebrew?&lt;/h3&gt;&lt;p&gt;Homebrew es un gestor de paquetes esencial para OSX, desarrollado en ruby y para los que vienen de linux, funciona parecido a &lt;code&gt;apt-get&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;http://techtastico.com/files/2013/10/Homebrew.png&quot; alt=&quot;Homebrew&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;Como OSX ya tiene ruby instalado, solo debemos ejecutar en consola:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ruby &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Después de instalar se recomienda correr doctor para buscar algún inconveniente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;doctor
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;¿Ahora?&quot;&gt;¿Ahora?&lt;/h3&gt;&lt;p&gt;En homebrew a los paquetes se les denomina fórmulas, para instalar una solo debes ejecutar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si quieres buscar una fórmula:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;search nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para borrar una fórmula:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;remove nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;¿Quieres actualizar una fórmula?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;upgrade nombre_formula
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;¿Quieres actualizar Homebrew?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para ver las fórmulas que tienes instaladas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew &lt;span class=&quot;type&quot;&gt;list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;¿Que_es_homebrew?&quot;&gt;¿Que es homebrew?&lt;/h3&gt;&lt;p&gt;Homebrew es un gestor de paquetes esencial para OSX, desarrollado en ruby y para los que vienen de linux, funciona parecido a &lt;code&gt;apt-get&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="OS X" scheme="https://luisfuentes.me/categories/OS-X/"/>
+    
+      <category term="Guías" scheme="https://luisfuentes.me/categories/OS-X/Guias/"/>
+    
+      <category term="Homebrew" scheme="https://luisfuentes.me/categories/OS-X/Guias/Homebrew/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ruby On Rails en Debian</title>
+    <link href="https://luisfuentes.me/ror-debian/"/>
+    <id>https://luisfuentes.me/ror-debian/</id>
+    <published>2013-06-03T19:05:53.000Z</published>
+    <updated>2016-04-23T19:51:25.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RoR&lt;/a&gt; es instalar ruby, abre el terminal y:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Instalamos ruby gems:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; rubygems
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunos comandos para manejar las gemas son:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//Actualizar ruby
+ $ gem &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;update&lt;/span&gt; –&lt;span class=&quot;keyword&quot;&gt;system&lt;/span&gt; 
+ //Ver gemas instaladas
+ $ gem &lt;span class=&quot;keyword&quot;&gt;list&lt;/span&gt;
+ // instalar algú&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;m&lt;/span&gt;ódulo
+ $ gem &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;m&lt;/span&gt;ódulo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Instalamos ruby on rails&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; rails 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si vamos a usar mysql debemos instalar el driver mysql para RoR:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql-&lt;span class=&quot;keyword&quot;&gt;server&lt;/span&gt;
+ $ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; libmysqlclient-dev
+ $ gem &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Primeros_pasos_con_RoR&quot;&gt;Primeros pasos con RoR&lt;/h3&gt;&lt;p&gt;Para crear un proyecto ejecutas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;rails nombreDelProyecto
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Configuras el proveedor de bases de datos en &lt;strong&gt;config/database.yml&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;development&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_dev&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;test&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;production&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;adapter&lt;/span&gt;: mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;database&lt;/span&gt;: database_prod&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;host&lt;/span&gt;: localhost&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;username&lt;/span&gt;: root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;password&lt;/span&gt;: password_del_root&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Para terminar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ rake &lt;span class=&quot;string&quot;&gt;db:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;create:&lt;/span&gt;all
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Creamos nuestro primer scaffold de ejemplo en la base de datos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ruby &lt;span class=&quot;keyword&quot;&gt;script&lt;/span&gt;/generate scaffold Pelicula titulo:&lt;span class=&quot;type&quot;&gt;string&lt;/span&gt; descripcion:&lt;span class=&quot;type&quot;&gt;text&lt;/span&gt; url_caratula:&lt;span class=&quot;type&quot;&gt;string&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y en el archivo de migraciones &lt;strong&gt;db/migrate/20120107183925_create_peliculas.rb&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CreatePeliculas&lt;/span&gt; &lt;span class=&quot;inheritance&quot;&gt;&amp;lt; &lt;span class=&quot;parent&quot;&gt;ActiveRecord::Migration&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;up&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    create_table &lt;span class=&quot;symbol&quot;&gt;:peliculas&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; |t|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.string &lt;span class=&quot;symbol&quot;&gt;:titulo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.text &lt;span class=&quot;symbol&quot;&gt;:descripcion&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.string &lt;span class=&quot;symbol&quot;&gt;:url_caratula&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      t.timestamps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;down&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    drop_table &lt;span class=&quot;symbol&quot;&gt;:peliculas&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Para terminar ejecutamos la migración. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;rake &lt;span class=&quot;symbol&quot;&gt;db:&lt;/span&gt;migrate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y finalmente para revisar nuestro ejemplo activamos el webserver&lt;/p&gt;
+&lt;p&gt;   $ ruby script/server&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;p&gt;El primer paso para instalar &lt;a href=&quot;http://rubyonrails.org&quot;&gt;RoR&lt;/a&gt; es instalar ruby, abre el terminal y:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ruby
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="debian" scheme="https://luisfuentes.me/tags/debian/"/>
+    
+      <category term="guia" scheme="https://luisfuentes.me/tags/guia/"/>
+    
+      <category term="ror" scheme="https://luisfuentes.me/tags/ror/"/>
+    
+      <category term="ruby" scheme="https://luisfuentes.me/tags/ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crear un RuleFactory en OpenGTS</title>
+    <link href="https://luisfuentes.me/opengts-rulefactory/"/>
+    <id>https://luisfuentes.me/opengts-rulefactory/</id>
+    <published>2012-08-02T19:10:17.000Z</published>
+    <updated>2016-04-23T19:23:14.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Primero activamos las casillas en OpenGTS y los campos en la BD&lt;/p&gt;
+&lt;p&gt;En el archivo StartupInit.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Device.setRuleFactory(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; RuleFactoryExample());
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo config.conf modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;startupInit&lt;span class=&quot;class&quot;&gt;.Device&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.NotificationFieldInfo&lt;/span&gt;=true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el Archivo private.xml modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;Property&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;deviceInfo.showNotificationFields&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&amp;lt;/&lt;span class=&quot;keyword&quot;&gt;Property&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo RuleFactoryExample.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; SEND_NOTIFICATION = &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En el archivo common.conf modificamos:&lt;/p&gt;
+&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# --- SMTP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# --- (outgoing email configuration parameters)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;##smtp.host=localhost&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.debug=false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.host=smtp.gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.port=&lt;span class=&quot;number&quot;&gt;465&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.user=Mail@gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.user.emailAddress=Mail@gmail.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.password=Password&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;smtp.enableSSL=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.enableTLS=true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#smtp.threadModel.show=false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Actualizamos la bd:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bin/dbAdmin.&lt;span class=&quot;keyword&quot;&gt;pl&lt;/span&gt; -tables=&lt;span class=&quot;keyword&quot;&gt;ca&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y finalmenet compilamos :D&lt;/p&gt;
+&lt;p&gt;Nota: Si no aparecen los nuevos campos, borramos manualmente track.war&lt;/p&gt;
+&lt;p&gt;Stop Tomcat:&lt;br&gt;    &lt;code&gt;$CATALINA_HOME/bin/shutdown.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Delete the existing “track” servlet:&lt;br&gt;    &lt;code&gt;rm -rf $CATALINA_HOME/webapps/track*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Deploy the new “track” servlet:&lt;br&gt;    &lt;code&gt;cp $GTS_HOME/build/track.war $CATALINA_HOME/webapps/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Restart Tomcat:&lt;br&gt;    &lt;code&gt;`$CATALINA_HOME/bin/startup.sh&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Primero activamos las casillas en OpenGTS y los campos en la BD&lt;/p&gt;
+&lt;p&gt;En el archivo StartupInit.java modificamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Device.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Instalar OpenGTS en Linux</title>
+    <link href="https://luisfuentes.me/instalacion-opengts-linux/"/>
+    <id>https://luisfuentes.me/instalacion-opengts-linux/</id>
+    <published>2012-02-24T17:52:26.000Z</published>
+    <updated>2016-04-23T19:03:09.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;OpenGTS™ (“Open GPS Tracking System”) es el primer proyecto código abierto diseñado para proporcionar mediante un entorno web el seguimiento de una “flota” de vehículos a través de GPS.&lt;/p&gt;
+&lt;p&gt;Diseñado en Java y JavaScript utilizando tecnologías tales como Apache Tomcat para el despliegue de servicios web y MySQL para el almacenamiento de datos. Como tal, OpenGTS se ejecutará en cualquier S.O. que soporte estas tecnologías (incluyendo Linux, Mac OS X, FreeBSD, OpenBSD, Solaris, Windows XP, Windows Vista, 20XX de Windows, y más).&lt;/p&gt;
+&lt;h3 id=&quot;Instalación&quot;&gt;Instalación&lt;/h3&gt;&lt;h4 id=&quot;1-_Instalando_el_Software_necesario_para_correr_OpenGTS_en_linux&quot;&gt;1. Instalando el Software necesario para correr OpenGTS en linux&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1.1 Descarga Java Compiler&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: JDK 6 Update XX&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u26-download-400750.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nota: Descarga solo el JDK 6 Update XX&lt;/p&gt;
+&lt;p&gt;o en terminal ingresamos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude install &lt;span class=&quot;keyword&quot;&gt;sun&lt;/span&gt;-java6-jdk &lt;span class=&quot;keyword&quot;&gt;sun&lt;/span&gt;-java6-fonts
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;luego verificamos la versión instalada con:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ java -&lt;span class=&quot;property&quot;&gt;version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Asegúrate de estos datos:&lt;br&gt;&lt;figure class=&quot;highlight lisp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;java version &lt;span class=&quot;string&quot;&gt;&quot;1.6.0_26&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;TM&lt;/span&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1.6&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;_26-b03)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java HotSpot&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;TM&lt;/span&gt;)&lt;/span&gt; Server VM &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;20.1&lt;/span&gt;-b02, mixed mode)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Luego creamos una variable de entorno de java en el archivo /etc/profile&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; JAVA_HOME=/usr/lib/jvm/java-&lt;span class=&quot;number&quot;&gt;1.6&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;-openjdk
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(Asegúrate que &lt;em&gt;/usr/lib/jvm/java-1.6.0-openjdk&lt;/em&gt; sea la ruta correcta)&lt;/p&gt;
+&lt;p&gt;Se recomienda generar un enlace simbólico de “Java” en &lt;em&gt;/usr/local/&lt;/em&gt; que apunte a la dirección del JDK:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd /usr/local
+ $ ln -s &lt;span class=&quot;variable&quot;&gt;$JAVA&lt;/span&gt;_HOME java
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.2 Descarga JavaMail Support&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Sun JavaMail API (v1.4.4)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.oracle.com/technetwork/java/javamail/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zip: javamail1_4_4.zip&lt;/p&gt;
+&lt;p&gt;Instalar el Archivo Mail.jar en la librería extendida de Java&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cd /&lt;span class=&quot;constant&quot;&gt;Downloads&lt;/span&gt;/javamail-&lt;span class=&quot;number&quot;&gt;1.4&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;
+ &lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cp mail.jar &lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt;/jre/&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;lib&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;ext&lt;/span&gt;/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.3 Apache Ant Build Tool&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Ant v1.8.2&lt;br&gt;&lt;a href=&quot;http://ant.apache.org/bindownload.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; o&lt;br&gt;&lt;a href=&quot;http://apache.freeby.pctools.cl//ant/binaries/apache-ant-1.8.2-bin.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar Zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;o en terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; ant
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.4 Apache “Tomcat” Servlet Container&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: Apache Tomcat v7.x servlet container&lt;br&gt;&lt;a href=&quot;http://tomcat.apache.org/download-70.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; o&lt;br&gt;&lt;a href=&quot;http://apache.freeby.pctools.cl/tomcat/tomcat-7/v7.0.26/bin/apache-tomcat-7.0.26.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar Zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Se recomienda instalarlo en el directorio &lt;em&gt;usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ tar -zxvf apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;.tar.gz
+ $ mv apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt; /usr/local/
+ $ cd /usr/local/
+ $ chmod -R a+r apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Crear la variable de entorno en el archivo &lt;em&gt;/etc/profile/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; CATALINA_HOME=/usr/local/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Se recomienda generar un enlace simbólico de “Tomcat” en &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ln &lt;span class=&quot;operator&quot;&gt;-s&lt;/span&gt; /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;26&lt;/span&gt; /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/tomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Verificamos que los archivos en &lt;em&gt;CATALINA_HOME/bin&lt;/em&gt; tienen permisos de ejecución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$CATALINA&lt;/span&gt;_HOME/bin
+ $ chmod a+x *.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.5 MySQL Database Provider&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: MySQL v5.X.X&lt;br&gt;&lt;a href=&quot;http://dev.mysql.com/downloads/mysql/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;o en terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ aptitude &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; mysql-&lt;span class=&quot;keyword&quot;&gt;server&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;1.6 MySQL JDBC Driver&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Package: MySQL Connector/J v5.1.XX JDBC driver&lt;br&gt;&lt;a href=&quot;http://dev.mysql.com/downloads/connector/j/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Descargar&lt;/a&gt; el Zip: mysql-connector-java-5.1.XX.tar.gz&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cp mysql-connector-java-&lt;span class=&quot;number&quot;&gt;5.1&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;17&lt;/span&gt;-bin.jar       &lt;span class=&quot;constant&quot;&gt;JAVA_HOME&lt;/span&gt;/jre/&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;lib&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;ext&lt;/span&gt;/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;2-_Instalando_y_compilando_OpenGTS&quot;&gt;2. Instalando y compilando OpenGTS&lt;/h4&gt;&lt;p&gt;Copiamos la versión de OpenGTS descargada a &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.zip /usr/local/
+ $ unzip OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.zip
+ $ chown -R root:staff OpenGTS_2&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Crear la variable de entorno en el archivo &lt;em&gt;/etc/profile/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; CATALINA_HOME=/usr/local/apache-tomcat-&lt;span class=&quot;number&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Se recomienda generar un enlace simbolico de “OpenGTS” en &lt;em&gt;/usr/local/&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd /usr/local
+ $ ln -s &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME gts
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2.1 Inicializamos las tablas de la base de datos SQL&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/initdb.sh -rootUser=root -rootPass=root
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2.2 Comprobamos la instalación con el siguiente script&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/checkInstall.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;El resultado debe ser No errors reported, No warnings reported.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.3 Creamos la cuenta “sysadmin”&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ bin/admin.sh Account -account=sysadmin -pass=&lt;span class=&quot;number&quot;&gt;123456&lt;/span&gt; -create
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-_Instalando_“track-war”&quot;&gt;3. Instalando “track.war”&lt;/h4&gt;&lt;p&gt;Para generar track.war se debe ejecutar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ ant track
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Una vez creado el archivo, se instala con&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &lt;span class=&quot;variable&quot;&gt;$GTS&lt;/span&gt;_HOME
+ $ ant track.deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Para terminar reiniciamos Tomcat&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ CATALIN&lt;span class=&quot;built_in&quot;&gt;A_HOME&lt;/span&gt;/bin/shutdown.sh
+ $ CATALIN&lt;span class=&quot;built_in&quot;&gt;A_HOME&lt;/span&gt;/bin/startup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ingresamos a nuestro servidor OpenGTS&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/track/Track&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080/track/Track&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Introducción&quot;&gt;Introducción&lt;/h3&gt;&lt;p&gt;OpenGTS™ (“Open GPS Tracking System”) es el primer proyecto código abierto diseñado para proporcio
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://luisfuentes.me/tags/Java/"/>
+    
+      <category term="Linux" scheme="https://luisfuentes.me/tags/Linux/"/>
+    
+      <category term="OpenGTS" scheme="https://luisfuentes.me/tags/OpenGTS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hola Mundo</title>
+    <link href="https://luisfuentes.me/hola-mundo/"/>
+    <id>https://luisfuentes.me/hola-mundo/</id>
+    <published>2012-01-20T17:47:41.000Z</published>
+    <updated>2016-04-23T18:55:09.000Z</updated>
+    
+    <content type="html">&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;HolaMundo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;String[] args&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    System.&lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt;.println(&lt;span class=&quot;string&quot;&gt;&quot;Hola Mundo&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://luisfuentes.me/tags/Java/"/>
+    
+  </entry>
+  
+</feed>
