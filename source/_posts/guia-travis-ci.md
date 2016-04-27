@@ -23,7 +23,7 @@ Pero primeros generamos un nuevo token de acceso en [GitHub](https://github.com/
 Luego en travis-ci vamos a settings en nuestro proyecto y generamos una nueva variable de entorno.
 
 **Nombre:** DEPLOY_REPO
-**Valor:** {token}@@github.com:user/repository-name.git
+**Valor:** https://{token}@github.com:user/repository-name.git
 
 ahora configuramos nuestro archivo ***.travis.yml***
 
