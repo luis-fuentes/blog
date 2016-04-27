@@ -2,6 +2,10 @@ language: node_js
 node_js:
     - "5"
 
+branches:
+  only:
+  - master
+
 before_install:
     - npm install -g hexo
 
@@ -20,6 +24,7 @@ after_success:
     - cd .deploy
     - git init
     - git remote add origin $DEPLOY_REPO
+    - rm -rf ./*
     - cp -r ../public/* .
     - git add -A .
     - git commit -m 'Site updated'
