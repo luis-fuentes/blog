@@ -1,6 +1,6 @@
 title: Guía Homebrew
 date: 2014-04-23 15:26:26
-tags:
+categories:
 - OS X
 - Guías
 - Homebrew 

@@ -13,6 +13,8 @@ El primer paso para instalar [RoR](http://rubyonrails.org) es instalar ruby, abr
 
     $ aptitude install ruby
 
+<!--more-->
+
 Instalamos ruby gems:
 
     $ aptitude install rubygems
