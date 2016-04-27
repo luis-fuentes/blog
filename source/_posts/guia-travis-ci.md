@@ -9,6 +9,8 @@ tags:
 <!--more-->
 Es gratis para proyectos de codigo abierto y se paga para usarlo en proyectos privados, Tambien hay una version propietaria que permita hacer estas implementaciones en tus equipos. 
 
+![travis-ci logo](/images/Travis-CI-logo.jpg)
+
 ### Instalación
 
 Una vez que accedes con tu cuenta de GitHub, travis automaticamente sincroniza todos tus repositorios y solo debes elegir desde tu perfil en cual o cuales deseas activar el servicio.
@@ -23,7 +25,7 @@ Pero primeros generamos un nuevo token de acceso en [GitHub](https://github.com/
 Luego en travis-ci vamos a settings en nuestro proyecto y generamos una nueva variable de entorno.
 
 **Nombre:** DEPLOY_REPO
-**Valor:** https://{token}@github.com:user/repository-name.git
+**Valor:** https://{user}:{token}@github.com/{user}/{repository-name}.git
 
 ahora configuramos nuestro archivo ***.travis.yml***
 
@@ -48,11 +50,10 @@ script:
 after_success:
     - mkdir .deploy
     - cd .deploy
-    - git init
-    - git remote add origin $DEPLOY_REPO
+    - git clone $DEPLOY_REPO . || (git init && git remote add origin $DEPLOY_REPO)
     - cp -r ../public/* .
     - git add -A .
-    - git commit -m 'Site updated'
+    - git commit -m 'Site updated by Travis'
     - git push --force --quiet origin master
 ```
 

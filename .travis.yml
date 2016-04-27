@@ -13,7 +13,7 @@ install:
     - npm install
 
 before_script:
-    - git config --global user.name 'luis-fuentes'
+    - git config --global user.name 'Luis Fuentes'
     - git config --global user.email 'hola@luisfuentes.me'
 
 script:
