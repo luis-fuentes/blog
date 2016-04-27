@@ -22,8 +22,7 @@ script:
 after_success:
     - mkdir .deploy
     - cd .deploy
-    - git init
-    - git remote add origin $DEPLOY_REPO
+    - git clone $DEPLOY_REPO . || (git init && git remote add origin $DEPLOY_REPO)
     - cp -r ../public/* .
     - git add -A .
     - git commit -m 'Site updated'
