@@ -5,20 +5,20 @@ tags:
 
 ### Introducción
 
-[Travis-CI](https://travis-ci.org) Es una un servicio distribuido de integracion continua, se usa para levantar y hacer tests a tu software alojado en GitHub cada vez que haces un git push. Y facilita enormemente el trabajo tanto si eres el unico desarrollador o estas en un team.
+[Travis-CI](https://travis-ci.org) Es un servicio distribuido de integración continua, se usa en github para levantar y hacer tests a tu software cada vez que haces un git push. Y facilita enormemente el trabajo tanto si eres el único desarrollador o estás en un team.
 <!--more-->
-Es gratis para proyectos de codigo abierto y se paga para usarlo en proyectos privados, Tambien hay una version propietaria que permita hacer estas implementaciones en tus equipos. 
+Es gratis para proyectos de código abierto y se paga para usarlo en proyectos privados, También hay una versión propietaria que permite hacer estas implementaciones en tus equipos. 
 
 ![travis-ci logo](/images/Travis-CI-logo.jpg)
 
 ### Instalación
 
-Una vez que accedes con tu cuenta de GitHub, travis automaticamente sincroniza todos tus repositorios y solo debes elegir desde tu perfil en cual o cuales deseas activar el servicio.
+Una vez que accedes con tu cuenta de GitHub, travis automáticamente sincroniza todos tus repositorios y solo debes elegir desde tu perfil en cual o cuales deseas activar el servicio.
 
-El siguiente paso es agregar un archivo llamado ***.travis.yml*** a la raiz de tu repositorio. En este archivo le cuentas a travis de que se trata tu repositorio, que lenguaje usas y los test que quieres correr.
-Si el archivo no existe o esta mal escrito, travis ignorará tu repositorio. 
+El siguiente paso es agregar un archivo llamado ***.travis.yml*** a la raíz de tu repositorio. En este archivo le cuentas a travis de que se trata tu repositorio, que lenguaje usas y los test que quieres correr.
+Si el archivo no existe o está mal escrito, travis ignorará tu repositorio. 
 
-Archivos de ejemplo segun hay [acá](https://docs.travis-ci.com/user/language-specific/) y en esta guia usaremos uno para hacer deploy a un blog en [Hexo](https://hexo.io/).
+Archivos de ejemplo segun lenguaje hay [acá](https://docs.travis-ci.com/user/language-specific/) y en esta guia crearemos uno para hacer deploy a un blog en [Hexo](https://hexo.io/).
 
 Pero primeros generamos un nuevo token de acceso en [GitHub](https://github.com/settings/tokens)
 
