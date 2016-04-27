@@ -65,5 +65,13 @@ Si usas un theme modificado como en mi caso, debes agregarlo como un submodulo e
     url = https://github.com/luis-fuentes/hexo-theme-apollo.git
 ```
 
+Nota: 
+Para agregar un badge de tu build como este [![Build Status](https://travis-ci.org/luis-fuentes/blog.svg?branch=master)](https://travis-ci.org/luis-fuentes/blog)
 
+Solo debes agregar este codigo a tu README.md
+
+```
+[![Build Status](https://travis-ci.org/luis-fuentes/blog.svg?branch=master)]
+(https://travis-ci.org/luis-fuentes/blog)
+```
 
