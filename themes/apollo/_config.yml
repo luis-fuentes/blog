@@ -3,6 +3,7 @@ menu:
   Root: /
   Archivos: /archives
   Github: https://github.com/luis-fuentes
+  Gitlab: https://gitlab.com/u/luisfuentes
   rss: /atom.xml
 
 favicon: /favicon.png
