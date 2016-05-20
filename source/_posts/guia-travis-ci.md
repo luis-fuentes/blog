@@ -9,7 +9,7 @@ tags:
 <!--more-->
 Es gratis para proyectos de código abierto y se paga para usarlo en proyectos privados, También hay una versión propietaria que permite hacer estas implementaciones en tus equipos. 
 
-![travis-ci logo](/images/Travis-CI-logo.jpg)
+![travis-ci logo](/images/travis-ci-logo.jpg)
 
 ### Instalación
 
