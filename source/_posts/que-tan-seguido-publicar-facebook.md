@@ -1,12 +1,10 @@
-title: que-tan-seguido-publicar-facebook
-date: 2016-09-06 02:38:05
+title: ¿Qué tan seguido deberías publicar en Facebook?
+date: 2016-06-06 02:38:05
 tags:
 - Guías
 - Facebook
 - Redes Sociales
 ---
-
-### ¿Qué tan seguido deberías publicar en Facebook?
 
 “Depende”, no es la respuesta que todos andan buscando.
 
