@@ -1,6 +1,10 @@
 title: Guía Travis CI
 date: 2016-03-02 20:14:22
 tags:
+- OS X
+- Guías
+- Travis
+- CI
 ---
 
 ### Introducción
