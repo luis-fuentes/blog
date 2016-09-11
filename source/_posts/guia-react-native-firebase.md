@@ -9,7 +9,7 @@ tags:
 ---
 
 
-
+![Guía React Native + Firebase](/images/firebase-react.png) 
 ### Configuración
 
 Los primeros pasos con react native son sencillos, si ya tienes todo configurado puedes saltar estos pasos. 
@@ -66,6 +66,7 @@ const firebaseConfig = {
   storageBucket: "<your-storage-bucket>",,
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
+```
 
 ¿Que es ***const***?
 
